@@ -131,7 +131,7 @@ export default function Home() {
       {/* Header */}
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-ink/85 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-          <Image src="/img/logo.png" alt="Enervit" width={120} height={68} className="h-9 w-auto" priority />
+          <Image src="/img/logo.png" alt="Enervit" width={160} height={90} className="h-12 w-auto sm:h-14" priority />
           <nav className="hidden items-center gap-8 text-sm font-medium text-white/80 md:flex">
             <a href="#vyhody" className="transition hover:text-white">Proč Enervit</a>
             <a href="#segmenty" className="transition hover:text-white">Pro koho</a>
@@ -414,10 +414,20 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Sticky mobile CTA */}
+      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-ink/95 p-3 backdrop-blur md:hidden">
+        <a
+          href="#formular"
+          className="font-display block rounded-lg bg-enervit px-6 py-3.5 text-center text-base font-bold uppercase tracking-wide text-white"
+        >
+          Chci nabídku pro svou prodejnu
+        </a>
+      </div>
+
       {/* Footer */}
-      <footer className="bg-ink py-12 text-sm text-white/50">
+      <footer className="bg-ink py-12 pb-24 text-sm text-white/50 md:pb-12">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-4 sm:flex-row sm:justify-between">
-          <Image src="/img/logo.png" alt="Enervit" width={100} height={56} className="h-8 w-auto" />
+          <Image src="/img/logo.png" alt="Enervit" width={130} height={73} className="h-11 w-auto" />
           <p className="text-center">
             VITAR Sport s.r.o. — exkluzivní distributor Enervit pro ČR a SR
             <br />
