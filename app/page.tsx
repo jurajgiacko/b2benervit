@@ -32,6 +32,29 @@ const PRODUCTS = [
   { src: "/img/p-tpd.png", name: "The Protein Deal", line: "Proteinové snacky" },
 ];
 
+const SEGMENTS = [
+  {
+    title: "Specializované prodejny",
+    desc: "Cyklo, běh, outdoor, sportovní výživa. Vysokoobrátkový doplněk k hardwaru s marží, kterou kola ani boty nedají.",
+    icon: "🚴",
+  },
+  {
+    title: "Fitness & gymy",
+    desc: "Proteiny, kreatin a snacky přímo na recepci. Řada Pure Pro a The Protein Deal je stavěná pro gym prostředí.",
+    icon: "💪",
+  },
+  {
+    title: "Kluby a oddíly",
+    desc: "Týmové fueling programy pro hokej, fotbal, cyklistiku i běžecké oddíly — od tréninku po zápasový den.",
+    icon: "🏆",
+  },
+  {
+    title: "Obchodní sítě a lékárny",
+    desc: "Retailové řešení s planogramem, POS podporou a logistikou. Enervit už dnes najdete v sítích po celé ČR.",
+    icon: "🏪",
+  },
+];
+
 const STEPS = [
   {
     n: "01",
@@ -111,6 +134,7 @@ export default function Home() {
           <Image src="/img/logo.png" alt="Enervit" width={120} height={68} className="h-9 w-auto" priority />
           <nav className="hidden items-center gap-8 text-sm font-medium text-white/80 md:flex">
             <a href="#vyhody" className="transition hover:text-white">Proč Enervit</a>
+            <a href="#segmenty" className="transition hover:text-white">Pro koho</a>
             <a href="#jak" className="transition hover:text-white">Jak to funguje</a>
             <a href="#tym" className="transition hover:text-white">Váš zástupce</a>
             <a href="#faq" className="transition hover:text-white">FAQ</a>
@@ -127,14 +151,22 @@ export default function Home() {
       {/* Hero */}
       <section className="relative flex min-h-[92vh] items-center overflow-hidden bg-ink pt-20 text-white">
         <Image
-          src="/img/lifestyle-3.jpg"
-          alt="Sportovec s výživou Enervit"
+          src="/img/hero-pogacar.jpg"
+          alt="Tadej Pogačar s gelem Enervit C2:1PRO během závodu"
           fill
           priority
-          className="object-cover opacity-40"
+          className="hidden object-cover object-[62%_30%] opacity-50 md:block"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/70 to-transparent" />
+        <Image
+          src="/img/win-pogacar.jpg"
+          alt="Tadej Pogačar slaví vítězství ve žlutém dresu Tour de France"
+          fill
+          priority
+          className="object-cover object-[45%_top] opacity-50 md:hidden"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/80 to-ink/20" />
         <div className="relative mx-auto w-full max-w-6xl px-4 py-24">
           <p className="font-display text-sm font-bold uppercase tracking-[0.25em] text-enervit">
             B2B program pro specializované prodejny v ČR a SR
@@ -197,6 +229,26 @@ export default function Home() {
                 <div className="h-1.5 w-12 rounded bg-enervit transition-all group-hover:w-20" />
                 <h3 className="font-display mt-5 text-2xl font-bold uppercase">{b.title}</h3>
                 <p className="mt-3 text-neutral-600">{b.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Segments */}
+      <section id="segmenty" className="bg-white pb-24">
+        <div className="mx-auto max-w-6xl px-4">
+          <SectionHeading
+            eyebrow="Pro koho"
+            title="Nejen pro prodejny"
+            sub="Program stavíme na míru podle toho, kdo jste a komu prodáváte."
+          />
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {SEGMENTS.map((s) => (
+              <div key={s.title} className="rounded-2xl bg-paper p-7 transition hover:-translate-y-1 hover:shadow-lg">
+                <span className="text-4xl">{s.icon}</span>
+                <h3 className="font-display mt-4 text-xl font-bold uppercase leading-tight">{s.title}</h3>
+                <p className="mt-2 text-sm text-neutral-600">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -271,12 +323,15 @@ export default function Home() {
           </div>
           <div className="relative h-[480px] overflow-hidden rounded-2xl">
             <Image
-              src="/img/lifestyle-5.jpg"
-              alt="Produkty Enervit v akci"
+              src="/img/win-pogacar.jpg"
+              alt="Tadej Pogačar slaví vítězství ve žlutém dresu Tour de France"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 560px"
             />
+            <p className="absolute bottom-4 left-4 rounded bg-ink/70 px-3 py-1.5 text-xs font-medium text-white">
+              Tadej Pogačar — vítěz Tour de France, spoléhá na Enervit
+            </p>
           </div>
         </div>
       </section>
@@ -300,6 +355,14 @@ export default function Home() {
                 </div>
                 <h3 className="font-display mt-5 text-2xl font-bold uppercase">{rep.name}</h3>
                 <p className="mt-1 text-sm font-semibold uppercase tracking-wide text-enervit">{rep.region}</p>
+                <div className="mt-4 space-y-1 text-sm text-neutral-600">
+                  <p>
+                    <a href={`mailto:${rep.email}`} className="transition hover:text-enervit">{rep.email}</a>
+                  </p>
+                  <p>
+                    <a href={`tel:${rep.phone.replace(/\s/g, "")}`} className="transition hover:text-enervit">{rep.phone}</a>
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -327,10 +390,10 @@ export default function Home() {
       {/* Form */}
       <section id="formular" className="relative overflow-hidden bg-ink py-24">
         <Image
-          src="/img/lifestyle-9.jpg"
-          alt=""
+          src="/img/event-jiz50.jpg"
+          alt="Stánek Enervit na Jizerské 50"
           fill
-          className="object-cover opacity-25"
+          className="object-cover opacity-30"
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-transparent to-ink/60" />

@@ -1,12 +1,30 @@
 export type Rep = {
   name: string;
   region: string;
+  email: string;
+  phone: string;
 };
 
+// Kontakty jsou veřejné na enervit.cz/kontakty
 export const REPS: Record<string, Rep> = {
-  karolina: { name: "Karolína Čalda", region: "Čechy" },
-  jiri: { name: "Jiří Gois", region: "Morava, kluby a oddíly" },
-  stepan: { name: "Štěpán Fryšara", region: "Slovensko" },
+  karolina: {
+    name: "Karolína Čalda",
+    region: "Sever a západ ČR, Praha",
+    email: "calda.karolina@enervit.cz",
+    phone: "+420 724 963 739",
+  },
+  jiri: {
+    name: "Jiří Goiš",
+    region: "Jih a východ ČR, kluby a oddíly",
+    email: "gois.jiri@enervit.cz",
+    phone: "+420 601 690 754",
+  },
+  stepan: {
+    name: "Štěpán Fryšara",
+    region: "Slovensko",
+    email: "frysara.stepan@enervit.cz",
+    phone: "+420 606 048 557",
+  },
 };
 
 export const REGIONS: { value: string; label: string; rep: keyof typeof REPS }[] = [
@@ -34,6 +52,7 @@ export const STORE_TYPES = [
   "Prodejna sportovní výživy",
   "Lékárna",
   "Sportovní klub / oddíl",
+  "Obchodní síť",
   "E-shop",
   "Jiné",
 ];

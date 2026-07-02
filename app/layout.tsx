@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: "Enervit B2B — partnerský program pro specializované prodejny",
     description:
       "Marže 40–55 %, poptávka z největších závodů v ČR/SR a osobní podpora. Přidejte se ke 120+ prodejnám.",
-    images: ["/img/lifestyle-3.jpg"],
+    images: ["/img/hero-pogacar.jpg"],
     locale: "cs_CZ",
     type: "website",
   },
