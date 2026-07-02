@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Enervit B2B — landing page pro nábor partnerských prodejen
 
-## Getting Started
+Kampaň **„Fueled by Enervit: Partner Program H2 2026"** — nábor 30+ specializovaných prodejen (cyklo, běh, fitness, výživa, lékárny) v ČR a SR. Kompletní strategie kampaně: [docs/KAMPAN-B2B-H2-2026.md](docs/KAMPAN-B2B-H2-2026.md).
 
-First, run the development server:
+## Stack
+
+Next.js 16 (App Router) + Tailwind CSS 4, deploy na Vercel. Obsah je statický, jediná dynamická část je `/api/lead` (příjem formuláře).
+
+## Vývoj
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev   # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Formulář a lead routing
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Formulář posílá lead na `POST /api/lead`. Route handler:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. zvaliduje povinná pole a souhlas,
+2. přiřadí obchodního zástupce podle kraje (`lib/regions.ts` — Čechy → Karolína, Morava → Jiří, Slovensko → Štěpán),
+3. přepošle payload na webhook v env proměnné `LEAD_WEBHOOK_URL` (Make.com scénář: e-mail zástupci + zápis do Google Sheetu).
 
-## Learn More
+Bez nastavené `LEAD_WEBHOOK_URL` se lead jen zaloguje do server logu — formulář tak funguje i v preview.
 
-To learn more about Next.js, take a look at the following resources:
+UTM/ref: obchodníci sdílejí odkaz s `?ref=karolina|jiri|stepan` — hodnota se posílá s leadem.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deploy na Vercel
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Importovat repo `jurajgiacko/b2benervit` na Vercelu (framework preset: Next.js, bez dalších úprav).
+2. V Settings → Environment Variables nastavit `LEAD_WEBHOOK_URL` (Make.com webhook).
+3. Doména: doporučeno `b2b.enervit.online` (konzistentní s event.enervit.online). Po připojení domény aktualizovat `metadataBase` v `app/layout.tsx`, pokud se změní.
 
-## Deploy on Vercel
+## Assets
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Loga, packshoty a lifestyle fotky v `public/img/` pocházejí z oficiálních Enervit brand podkladů (brand barva `#E40521`, Pantone 485). Zdrojové soubory v plném rozlišení jsou v interním úložišti VitarSport2026.
