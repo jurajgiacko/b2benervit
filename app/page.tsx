@@ -369,6 +369,27 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Nominate teaser */}
+      <section className="bg-enervit py-16 text-white">
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-4 text-center md:flex-row md:justify-between md:text-left">
+          <div>
+            <h2 className="font-display text-3xl font-bold uppercase leading-tight sm:text-4xl">
+              Jste sportovec, ne prodejna?
+            </h2>
+            <p className="mt-2 max-w-xl text-white/90">
+              Doporučte nám prodejnu, kde byste Enervit rádi kupovali. Když se stane partnerem, vybavíme vás na cestě
+              za vaším dalším tréninkovým cílem.
+            </p>
+          </div>
+          <a
+            href="/doporucte"
+            className="font-display shrink-0 rounded-lg bg-white px-8 py-4 text-lg font-bold uppercase tracking-wide text-enervit transition hover:bg-neutral-100"
+          >
+            Doporučit prodejnu
+          </a>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section id="faq" className="bg-white py-24">
         <div className="mx-auto max-w-3xl px-4">

@@ -192,6 +192,56 @@ export default function Banners() {
         </div>
       </Frame>
 
+      {/* ============ VARIANTA D — DOPORUČ (1080×1080, B2C feed) ============ */}
+      <Frame w={1080} h={1080} label="D1 · Meta feed B2C · doporuč prodejnu">
+        <Image src="/img/win-pogacar.jpg" alt="" fill className="object-cover object-[45%_top] opacity-50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
+        <div className="absolute inset-0 flex flex-col justify-between p-16">
+          <Logo className="h-20 w-auto self-start" />
+          <div>
+            <p className="font-display text-[100px] font-extrabold uppercase leading-[0.95]">
+              Chybí ti Enervit
+              <br />
+              <span className="text-enervit">za rohem?</span>
+            </p>
+            <p className="mt-6 max-w-[820px] text-3xl text-white/90">
+              Doporuč nám svou prodejnu. Když se přidá, vybavíme tě na tvůj další tréninkový cíl.
+            </p>
+            <div className="mt-10 flex items-center gap-8">
+              <span className="font-display inline-block rounded-lg bg-white px-8 py-4 text-2xl font-bold uppercase tracking-wide text-enervit">
+                Doporučit prodejnu →
+              </span>
+              <span className="text-2xl font-semibold text-white/70">{URL_LABEL}/doporucte</span>
+            </div>
+          </div>
+        </div>
+      </Frame>
+
+      {/* ============ VARIANTA D — DOPORUČ (1080×1920, story) ============ */}
+      <Frame w={1080} h={1920} label="D2 · IG story B2C · doporuč prodejnu">
+        <Image src="/img/hero-pogacar.jpg" alt="" fill className="object-cover object-[58%_20%] opacity-55" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-ink/60" />
+        <div className="absolute inset-0 flex flex-col justify-between p-20 pb-32">
+          <Logo className="h-24 w-auto self-center" />
+          <div className="text-center">
+            <p className="font-display text-[110px] font-extrabold uppercase leading-[0.95]">
+              Tvůj obchod.
+              <br />
+              Tvoje <span className="text-enervit">palivo</span>.
+            </p>
+            <p className="mx-auto mt-8 max-w-[720px] text-4xl text-white/85">
+              Doporuč prodejnu, kde chceš kupovat Enervit — a my tě vybavíme na tvůj další závod.
+            </p>
+            <div className="mt-14">
+              <span className="font-display inline-block rounded-lg bg-white px-8 py-4 text-2xl font-bold uppercase tracking-wide text-enervit">
+                Doporučit prodejnu →
+              </span>
+            </div>
+            <p className="mt-8 text-3xl font-semibold text-white/70">{URL_LABEL}/doporucte</p>
+          </div>
+        </div>
+      </Frame>
+
       {/* ============ 970×250 leaderboard ============ */}
       <Frame w={970} h={250} label="A3 · leaderboard · marže">
         <div className="absolute inset-0 bg-enervit" />
