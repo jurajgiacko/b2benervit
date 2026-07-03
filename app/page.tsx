@@ -21,11 +21,14 @@ const BENEFITS = [
   },
 ];
 
-// Sortiment jako fueling timeline — před/během/po je jádro prodejního příběhu
+// Sortiment jako fueling timeline — před/během/po dle oficiálního dělení Enervit
 const PHASES = [
   {
     label: "Před výkonem",
-    products: [{ src: "/img/p-bar.png", name: "Performance Bar" }],
+    products: [
+      { src: "/img/p-presport.png", name: "PreSport Jelly" },
+      { src: "/img/p-carbotablets.png", name: "Carbo Tablets" },
+    ],
   },
   {
     label: "Během výkonu",
@@ -33,21 +36,33 @@ const PHASES = [
       { src: "/img/p-carbogel.png", name: "C2:1PRO Carbo Gel" },
       { src: "/img/p-gel.png", name: "Enervit Gel" },
       { src: "/img/p-isotonic.png", name: "Isotonic Drink" },
+      { src: "/img/p-bar.png", name: "Performance Bar" },
     ],
   },
   {
     label: "Po výkonu",
     products: [
+      { src: "/img/p-r2.png", name: "R2 Recovery" },
+      { src: "/img/p-magiccherry.png", name: "Magic Cherry" },
       { src: "/img/p-whey.png", name: "100% Whey Protein" },
-      { src: "/img/p-purepro.png", name: "Pure Pro Isolate" },
+    ],
+  },
+];
+
+// Doplňkové řady mimo závodní den — subbrandy dle enervit.com
+const SUBBRANDS = [
+  {
+    name: "Pure Pro",
+    desc: "Prémiová řada pro gym a sílu — izoláty, kreatin, pre-workout.",
+    products: [
+      { src: "/img/p-purepro.png", name: "Isolate Whey" },
+      { src: "/img/p-creatine.png", name: "Creatine" },
     ],
   },
   {
-    label: "Každý den",
-    products: [
-      { src: "/img/p-creatine.png", name: "Pure Pro Creatine" },
-      { src: "/img/p-tpd.png", name: "The Protein Deal" },
-    ],
+    name: "The Protein Deal",
+    desc: "Proteinové snacky pro impulsní prodej u pokladny.",
+    products: [{ src: "/img/p-tpd.png", name: "Proteinové tyčinky" }],
   },
 ];
 
@@ -283,7 +298,7 @@ export default function Home() {
           <div className="relative mt-14">
             {/* časová osa spojující fáze */}
             <div className="absolute left-0 right-0 top-4 hidden h-0.5 bg-enervit/25 lg:block" />
-            <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-10 sm:grid-cols-3">
               {PHASES.map((phase) => (
                 <div key={phase.label}>
                   <div className="relative mb-6">
@@ -304,6 +319,30 @@ export default function Home() {
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* doplňkové řady mimo závodní den */}
+            <div className="mt-16 border-t border-neutral-300 pt-10">
+              <p className="font-display text-center text-sm font-bold uppercase tracking-[0.2em] text-neutral-500">
+                Doplňkové řady pro celoroční prodej
+              </p>
+              <div className="mt-8 grid gap-6 md:grid-cols-2">
+                {SUBBRANDS.map((sb) => (
+                  <div key={sb.name} className="flex items-center gap-6 rounded-2xl bg-white p-6 shadow-sm">
+                    <div className="flex shrink-0 gap-2">
+                      {sb.products.map((p) => (
+                        <div key={p.name} className="relative h-24 w-16">
+                          <Image src={p.src} alt={p.name} fill className="object-contain" sizes="80px" />
+                        </div>
+                      ))}
+                    </div>
+                    <div>
+                      <h3 className="font-display text-2xl font-bold uppercase">{sb.name}</h3>
+                      <p className="mt-1 text-sm text-neutral-600">{sb.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
