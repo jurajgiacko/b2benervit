@@ -8,7 +8,7 @@ export type Rep = {
 // Kontakty jsou veřejné na enervit.cz/kontakty
 export const REPS: Record<string, Rep> = {
   karolina: {
-    name: "Karolína Čalda",
+    name: "Karolína Calda",
     region: "Sever a západ ČR, Praha",
     email: "calda.karolina@enervit.cz",
     phone: "+420 724 963 739",
