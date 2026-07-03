@@ -8,21 +8,22 @@ export const metadata: Metadata = {
 };
 
 // Interní přehled kreativ pro Meta/Google kampaň. Není prolinkovaný z hlavní stránky.
-// Export: otevřít banner v prohlížeči při 100% zoomu a vyfotit / použít html-to-image nástroj.
+// Pravidla: jeden headline (max ~6 slov), velké logo, jedno CTA, žádné odstavce.
 
-const CTA = "Staňte se partnerem";
 const URL_LABEL = "b2b.enervit.online";
 
 function Logo({ className }: { className: string }) {
   return <Image src="/img/logo.png" alt="Enervit" width={640} height={360} className={className} />;
 }
 
-function CtaButton({ className = "" }: { className?: string }) {
+function Cta({ children, dark = false, small = false }: { children: React.ReactNode; dark?: boolean; small?: boolean }) {
   return (
     <span
-      className={`font-display inline-block rounded-lg bg-white px-8 py-4 text-2xl font-bold uppercase tracking-wide text-enervit ${className}`}
+      className={`font-display inline-block rounded-lg font-bold uppercase tracking-wide ${
+        dark ? "bg-ink text-white" : "bg-enervit text-white"
+      } ${small ? "px-6 py-3 text-2xl" : "px-10 py-5 text-3xl"}`}
     >
-      {CTA} →
+      {children} →
     </span>
   );
 }
@@ -90,232 +91,201 @@ export default function Banners() {
       </nav>
       <BannerZoom />
 
-      {/* ============ VARIANTA A — MARŽE (1080×1080, feed) ============ */}
+      {/* ============ A1 · MARŽE · 1080×1080 — čistá typografie ============ */}
       <Frame id="a1" w={1080} h={1080} label="Meta feed · marže">
-        <Image src="/img/win-pogacar.jpg" alt="" fill className="object-cover object-[45%_top] opacity-45" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
-        <div className="absolute inset-0 flex flex-col justify-between p-16">
-          <Logo className="h-20 w-auto self-start" />
+        <div className="absolute inset-0 bg-ink" />
+        <div className="absolute inset-0 flex flex-col items-start justify-between p-20">
+          <Logo className="h-32 w-auto" />
           <div>
-            <p className="font-display text-[110px] font-extrabold uppercase leading-[0.95]">
-              Marže <span className="text-enervit">40–55 %</span>
-              <br />
-              na regálu, který
-              <br />
-              se točí sám
+            <p className="font-display whitespace-nowrap text-[230px] font-extrabold leading-none text-enervit">40–55&nbsp;%</p>
+            <p className="font-display mt-2 text-6xl font-bold uppercase text-white">
+              marže pro vaši prodejnu
             </p>
-            <p className="mt-6 text-3xl text-white/85">B2B program pro specializované prodejny</p>
-            <div className="mt-10 flex items-center gap-8">
-              <CtaButton />
-              <span className="text-2xl font-semibold text-white/70">{URL_LABEL}</span>
-            </div>
           </div>
+          <Cta>Chci Enervit</Cta>
         </div>
       </Frame>
 
-      {/* ============ VARIANTA B — POGAČAR (1080×1080, feed) ============ */}
+      {/* ============ B1 · POGAČAR · 1080×1080 ============ */}
       <Frame id="b1" w={1080} h={1080} label="Meta feed · Pogačar">
-        <Image src="/img/hero-pogacar.jpg" alt="" fill className="object-cover object-[62%_20%] opacity-60" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent" />
-        <div className="absolute inset-0 flex flex-col justify-between p-16">
-          <Logo className="h-20 w-auto self-start" />
+        <Image src="/img/hero-pogacar.jpg" alt="" fill className="object-cover object-[62%_20%] opacity-70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/25 to-transparent" />
+        <div className="absolute inset-0 flex flex-col items-start justify-between p-20">
+          <Logo className="h-32 w-auto" />
           <div>
-            <p className="font-display text-[100px] font-extrabold uppercase leading-[0.95]">
-              Prodávejte výživu,
+            <p className="font-display text-[135px] font-extrabold uppercase leading-[0.92]">
+              Výživa vítězů
               <br />
-              se kterou se vyhrává
-              <br />
-              <span className="text-enervit">Tour de France</span>
+              <span className="text-enervit">Tour.</span>
             </p>
-            <div className="mt-10 flex items-center gap-8">
-              <CtaButton />
-              <span className="text-2xl font-semibold text-white/70">{URL_LABEL}</span>
+            <div className="mt-12">
+              <Cta>Prodávejte ji i vy</Cta>
             </div>
           </div>
         </div>
       </Frame>
 
-      {/* ============ VARIANTA C — PODPORA (1080×1080, feed) ============ */}
+      {/* ============ C1 · PODPORA · 1080×1080 — červená + produkt ============ */}
       <Frame id="c1" w={1080} h={1080} label="Meta feed · podpora">
         <div className="absolute inset-0 bg-enervit" />
-        <div className="absolute -right-24 bottom-0 top-24 w-[560px]">
+        <div className="absolute -right-20 bottom-0 top-40 w-[600px]">
           <Image src="/img/p-purepro.png" alt="" fill className="object-contain object-bottom" />
         </div>
-        <div className="absolute inset-0 flex flex-col justify-between p-16">
-          <Logo className="h-20 w-auto self-start rounded bg-white/0" />
-          <div className="max-w-[620px]">
-            <p className="font-display text-[96px] font-extrabold uppercase leading-[0.95]">
-              Startovací balíček.
+        <div className="absolute inset-0 flex flex-col items-start justify-between p-20">
+          <Logo className="h-32 w-auto" />
+          <div className="max-w-[560px]">
+            <p className="font-display text-[120px] font-extrabold uppercase leading-[0.92] text-white">
+              Balíček.
               <br />
               Zaškolení.
               <br />
-              Váš zástupce.
+              Zástupce.
             </p>
-            <p className="mt-6 text-3xl text-white/90">Enervit do vaší prodejny bez rizika.</p>
-            <div className="mt-10 flex items-center gap-8">
-              <span className="font-display inline-block rounded-lg bg-ink px-8 py-4 text-2xl font-bold uppercase tracking-wide text-white">
-                {CTA} →
-              </span>
-              <span className="text-2xl font-semibold text-white/85">{URL_LABEL}</span>
+            <div className="mt-12">
+              <Cta dark>Staňte se partnerem</Cta>
             </div>
           </div>
         </div>
       </Frame>
 
-      {/* ============ 1200×628 link ad (B) ============ */}
+      {/* ============ B2 · POGAČAR · 1200×628 link ad ============ */}
       <Frame id="b2" w={1200} h={628} label="Meta link ad / GDN · Pogačar">
-        <Image src="/img/hero-pogacar.jpg" alt="" fill className="object-cover object-[70%_20%] opacity-60" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/70 to-transparent" />
-        <div className="absolute inset-0 flex flex-col justify-center p-14">
-          <Logo className="mb-8 h-16 w-auto self-start" />
-          <p className="font-display max-w-[700px] text-7xl font-extrabold uppercase leading-[0.95]">
-            Výživa vítězů <span className="text-enervit">Tour de France</span> ve vaší prodejně
-          </p>
-          <div className="mt-8 flex items-center gap-6">
-            <CtaButton className="!text-xl !px-6 !py-3" />
-            <span className="text-xl font-semibold text-white/70">{URL_LABEL}</span>
+        <Image src="/img/hero-pogacar.jpg" alt="" fill className="object-cover object-[70%_20%] opacity-70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/60 to-transparent" />
+        <div className="absolute inset-0 flex flex-col justify-between p-16">
+          <Logo className="h-24 w-auto self-start" />
+          <div>
+            <p className="font-display max-w-[720px] text-8xl font-extrabold uppercase leading-[0.92]">
+              Výživa vítězů <span className="text-enervit">Tour.</span>
+            </p>
+            <div className="mt-8">
+              <Cta small>Prodávejte ji i vy</Cta>
+            </div>
           </div>
         </div>
       </Frame>
 
-      {/* ============ 1200×628 link ad (A) ============ */}
+      {/* ============ A2 · MARŽE · 1200×628 link ad ============ */}
       <Frame id="a2" w={1200} h={628} label="Meta link ad / GDN · marže">
         <div className="absolute inset-0 bg-ink" />
-        <div className="absolute -right-10 bottom-0 top-16 w-[460px]">
+        <div className="absolute -right-6 bottom-0 top-10 w-[420px]">
           <Image src="/img/p-carbogel.png" alt="" fill className="object-contain object-bottom" />
         </div>
-        <div className="absolute inset-0 flex flex-col justify-center p-14">
-          <Logo className="mb-8 h-16 w-auto self-start" />
-          <p className="font-display max-w-[720px] text-7xl font-extrabold uppercase leading-[0.95]">
-            Marže <span className="text-enervit">40–55 %</span>.<br />
-            Zákazník, který se vrací.
-          </p>
-          <div className="mt-8 flex items-center gap-6">
-            <CtaButton className="!text-xl !px-6 !py-3" />
-            <span className="text-xl font-semibold text-white/70">{URL_LABEL}</span>
+        <div className="absolute inset-0 flex flex-col justify-between p-16">
+          <Logo className="h-24 w-auto self-start" />
+          <div>
+            <p className="font-display whitespace-nowrap text-[140px] font-extrabold leading-none text-enervit">40–55&nbsp;%</p>
+            <p className="font-display text-5xl font-bold uppercase text-white">marže pro vaši prodejnu</p>
+            <div className="mt-8">
+              <Cta small>Chci Enervit</Cta>
+            </div>
           </div>
         </div>
       </Frame>
 
-      {/* ============ 1080×1920 story ============ */}
+      {/* ============ B3 · POGAČAR · 1080×1920 story ============ */}
       <Frame id="b3" w={1080} h={1920} label="IG/FB story · Pogačar">
-        <Image src="/img/win-pogacar.jpg" alt="" fill className="object-cover object-[45%_top] opacity-55" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-ink/60" />
-        <div className="absolute inset-0 flex flex-col justify-between p-20 pb-32">
-          <Logo className="h-24 w-auto self-center" />
-          <div className="text-center">
-            <p className="font-display text-[120px] font-extrabold uppercase leading-[0.95]">
+        <Image src="/img/win-pogacar.jpg" alt="" fill className="object-cover object-[45%_top] opacity-65" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-ink/50" />
+        <div className="absolute inset-0 flex flex-col items-center justify-between p-20 pb-36 text-center">
+          <Logo className="h-40 w-auto" />
+          <div>
+            <p className="font-display text-[150px] font-extrabold uppercase leading-[0.92]">
               Váš regál.
               <br />
-              Jejich <span className="text-enervit">palivo</span>.
+              Jejich <span className="text-enervit">palivo.</span>
             </p>
-            <p className="mx-auto mt-8 max-w-[700px] text-4xl text-white/85">
-              Staňte se partnerskou prodejnou Enervit. Marže 40–55 %, startovací balíček a podpora závodů ve vašem
-              regionu.
-            </p>
-            <div className="mt-14">
-              <CtaButton />
+            <div className="mt-16">
+              <Cta>Staňte se partnerem</Cta>
             </div>
-            <p className="mt-8 text-3xl font-semibold text-white/70">{URL_LABEL}</p>
+            <p className="mt-10 text-3xl font-semibold text-white/70">{URL_LABEL}</p>
           </div>
         </div>
       </Frame>
 
-      {/* ============ VARIANTA D — DOPORUČ (1080×1080, B2C feed) ============ */}
+      {/* ============ D1 · DOPORUČ · 1080×1080 B2C ============ */}
       <Frame id="d1" w={1080} h={1080} label="Meta feed B2C · doporuč prodejnu">
-        <Image src="/img/win-pogacar.jpg" alt="" fill className="object-cover object-[45%_top] opacity-50" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
-        <div className="absolute inset-0 flex flex-col justify-between p-16">
-          <Logo className="h-20 w-auto self-start" />
+        <Image src="/img/win-pogacar.jpg" alt="" fill className="object-cover object-[45%_top] opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent" />
+        <div className="absolute inset-0 flex flex-col items-start justify-between p-20">
+          <Logo className="h-32 w-auto" />
           <div>
-            <p className="font-display text-[100px] font-extrabold uppercase leading-[0.95]">
+            <p className="font-display text-[130px] font-extrabold uppercase leading-[0.92]">
               Chybí ti Enervit
               <br />
               <span className="text-enervit">za rohem?</span>
             </p>
-            <p className="mt-6 max-w-[820px] text-3xl text-white/90">
-              Doporuč nám svou prodejnu. Když se přidá, vybavíme tě na tvůj další tréninkový cíl.
-            </p>
-            <div className="mt-10 flex items-center gap-8">
-              <span className="font-display inline-block rounded-lg bg-white px-8 py-4 text-2xl font-bold uppercase tracking-wide text-enervit">
-                Doporučit prodejnu →
-              </span>
-              <span className="text-2xl font-semibold text-white/70">{URL_LABEL}/doporucte</span>
+            <div className="mt-12">
+              <Cta>Doporuč prodejnu</Cta>
             </div>
+            <p className="mt-8 text-3xl font-semibold text-white/80">Za úspěšný tip balíček na tvůj cíl.</p>
           </div>
         </div>
       </Frame>
 
-      {/* ============ VARIANTA D — DOPORUČ (1080×1920, story) ============ */}
+      {/* ============ D2 · DOPORUČ · 1080×1920 story B2C ============ */}
       <Frame id="d2" w={1080} h={1920} label="IG story B2C · doporuč prodejnu">
-        <Image src="/img/hero-pogacar.jpg" alt="" fill className="object-cover object-[58%_20%] opacity-55" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-ink/60" />
-        <div className="absolute inset-0 flex flex-col justify-between p-20 pb-32">
-          <Logo className="h-24 w-auto self-center" />
-          <div className="text-center">
-            <p className="font-display text-[110px] font-extrabold uppercase leading-[0.95]">
+        <Image src="/img/hero-pogacar.jpg" alt="" fill className="object-cover object-[58%_20%] opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/25 to-ink/50" />
+        <div className="absolute inset-0 flex flex-col items-center justify-between p-20 pb-36 text-center">
+          <Logo className="h-40 w-auto" />
+          <div>
+            <p className="font-display text-[150px] font-extrabold uppercase leading-[0.92]">
               Tvůj obchod.
               <br />
-              Tvoje <span className="text-enervit">palivo</span>.
+              Tvoje <span className="text-enervit">palivo.</span>
             </p>
-            <p className="mx-auto mt-8 max-w-[720px] text-4xl text-white/85">
-              Doporuč prodejnu, kde chceš kupovat Enervit — a my tě vybavíme na tvůj další závod.
-            </p>
-            <div className="mt-14">
-              <span className="font-display inline-block rounded-lg bg-white px-8 py-4 text-2xl font-bold uppercase tracking-wide text-enervit">
-                Doporučit prodejnu →
-              </span>
+            <div className="mt-16">
+              <Cta>Doporuč prodejnu</Cta>
             </div>
-            <p className="mt-8 text-3xl font-semibold text-white/70">{URL_LABEL}/doporucte</p>
+            <p className="mt-10 text-3xl font-semibold text-white/80">Za úspěšný tip balíček na tvůj cíl.</p>
           </div>
         </div>
       </Frame>
 
-      {/* ============ VARIANTA D — DOPORUČ (1200×628, link ad) ============ */}
+      {/* ============ D3 · DOPORUČ · 1200×628 link ad B2C ============ */}
       <Frame id="d3" w={1200} h={628} label="Meta link ad B2C · doporuč prodejnu">
-        <Image src="/img/win-pogacar.jpg" alt="" fill className="object-cover object-[45%_top] opacity-50" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/70 to-transparent" />
-        <div className="absolute inset-0 flex flex-col justify-center p-14">
-          <Logo className="mb-8 h-16 w-auto self-start" />
-          <p className="font-display max-w-[760px] text-7xl font-extrabold uppercase leading-[0.95]">
-            Doporuč prodejnu, získej <span className="text-enervit">balíček na svůj cíl</span>
-          </p>
-          <div className="mt-8 flex items-center gap-6">
-            <span className="font-display inline-block rounded-lg bg-white px-6 py-3 text-xl font-bold uppercase tracking-wide text-enervit">
-              Doporučit prodejnu →
-            </span>
-            <span className="text-xl font-semibold text-white/70">{URL_LABEL}/doporucte</span>
+        <Image src="/img/win-pogacar.jpg" alt="" fill className="object-cover object-[45%_top] opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/60 to-transparent" />
+        <div className="absolute inset-0 flex flex-col justify-between p-16">
+          <Logo className="h-24 w-auto self-start" />
+          <div>
+            <p className="font-display max-w-[760px] text-8xl font-extrabold uppercase leading-[0.92]">
+              Chybí ti Enervit <span className="text-enervit">za rohem?</span>
+            </p>
+            <div className="mt-8">
+              <Cta small>Doporuč prodejnu</Cta>
+            </div>
           </div>
         </div>
       </Frame>
 
-      {/* ============ 970×250 leaderboard ============ */}
+      {/* ============ A3 · MARŽE · 970×250 leaderboard ============ */}
       <Frame id="a3" w={970} h={250} label="leaderboard · marže">
         <div className="absolute inset-0 bg-enervit" />
-        <div className="absolute inset-0 flex items-center gap-10 px-12">
-          <Logo className="h-14 w-auto shrink-0" />
-          <p className="font-display flex-1 text-5xl font-extrabold uppercase leading-none">
-            Sportovní výživa s marží 40–55 %
+        <div className="absolute inset-0 flex items-center gap-12 px-14">
+          <Logo className="h-20 w-auto shrink-0" />
+          <p className="font-display flex-1 text-6xl font-extrabold uppercase leading-none text-white">
+            Marže 40–55&nbsp;%
           </p>
-          <span className="font-display shrink-0 rounded-lg bg-ink px-6 py-3 text-xl font-bold uppercase text-white">
-            {CTA} →
+          <span className="font-display shrink-0 rounded-lg bg-ink px-8 py-4 text-2xl font-bold uppercase text-white">
+            Chci Enervit →
           </span>
         </div>
       </Frame>
 
-      {/* ============ 300×250 rectangle ============ */}
+      {/* ============ A4 · MARŽE · 300×250 rectangle ============ */}
       <Frame id="a4" w={300} h={250} label="medium rectangle · marže">
         <div className="absolute inset-0 bg-ink" />
-        <div className="absolute inset-0 flex flex-col justify-between p-6">
-          <Logo className="h-9 w-auto self-start" />
+        <div className="absolute inset-0 flex flex-col items-start justify-between p-6">
+          <Logo className="h-12 w-auto" />
           <div>
-            <p className="font-display text-3xl font-extrabold uppercase leading-none">
-              Marže <span className="text-enervit">40–55 %</span> pro vaši prodejnu
-            </p>
-            <span className="font-display mt-4 inline-block rounded bg-enervit px-4 py-2 text-sm font-bold uppercase text-white">
-              {CTA} →
-            </span>
+            <p className="font-display text-6xl font-extrabold leading-none text-enervit">40–55&nbsp;%</p>
+            <p className="font-display text-xl font-bold uppercase text-white">marže na výživě</p>
           </div>
+          <span className="font-display rounded bg-enervit px-5 py-2.5 text-base font-bold uppercase text-white">
+            Chci Enervit →
+          </span>
         </div>
       </Frame>
     </main>
