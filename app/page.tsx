@@ -390,10 +390,10 @@ export default function Home() {
       {/* Form */}
       <section id="formular" className="relative overflow-hidden bg-ink py-24">
         <Image
-          src="/img/event-jiz50.jpg"
-          alt="Stánek Enervit na Jizerské 50"
+          src="/img/products-range.jpg"
+          alt="Produktová řada Enervit C2:1PRO"
           fill
-          className="object-cover opacity-30"
+          className="object-cover object-[center_35%] opacity-20"
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-transparent to-ink/60" />
