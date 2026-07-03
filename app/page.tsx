@@ -21,15 +21,34 @@ const BENEFITS = [
   },
 ];
 
-const PRODUCTS = [
-  { src: "/img/p-carbogel.png", name: "C2:1PRO Carbo Gel", line: "Energie během výkonu" },
-  { src: "/img/p-gel.png", name: "Enervit Gel", line: "Klasika pro vytrvalce" },
-  { src: "/img/p-isotonic.png", name: "Isotonic Drink", line: "Hydratace" },
-  { src: "/img/p-bar.png", name: "Performance Bar", line: "Energetické tyčinky" },
-  { src: "/img/p-whey.png", name: "100% Whey Protein", line: "Regenerace" },
-  { src: "/img/p-purepro.png", name: "Pure Pro Isolate", line: "Prémiová řada" },
-  { src: "/img/p-creatine.png", name: "Pure Pro Creatine", line: "Síla a výkon" },
-  { src: "/img/p-tpd.png", name: "The Protein Deal", line: "Proteinové snacky" },
+// Sortiment jako fueling timeline — před/během/po je jádro prodejního příběhu
+const PHASES = [
+  {
+    label: "Před výkonem",
+    products: [{ src: "/img/p-bar.png", name: "Performance Bar" }],
+  },
+  {
+    label: "Během výkonu",
+    products: [
+      { src: "/img/p-carbogel.png", name: "C2:1PRO Carbo Gel" },
+      { src: "/img/p-gel.png", name: "Enervit Gel" },
+      { src: "/img/p-isotonic.png", name: "Isotonic Drink" },
+    ],
+  },
+  {
+    label: "Po výkonu",
+    products: [
+      { src: "/img/p-whey.png", name: "100% Whey Protein" },
+      { src: "/img/p-purepro.png", name: "Pure Pro Isolate" },
+    ],
+  },
+  {
+    label: "Každý den",
+    products: [
+      { src: "/img/p-creatine.png", name: "Pure Pro Creatine" },
+      { src: "/img/p-tpd.png", name: "The Protein Deal" },
+    ],
+  },
 ];
 
 const SEGMENTS = [
@@ -118,8 +137,8 @@ const FAQS = [
 function SectionHeading({ eyebrow, title, sub }: { eyebrow: string; title: string; sub?: string }) {
   return (
     <div className="mx-auto max-w-3xl text-center">
-      <p className="font-display text-sm font-bold uppercase tracking-[0.2em] text-enervit">{eyebrow}</p>
-      <h2 className="font-display mt-2 text-4xl font-bold uppercase leading-tight sm:text-5xl">{title}</h2>
+      <span className="tag-bib">{eyebrow}</span>
+      <h2 className="font-display mt-4 text-4xl font-bold uppercase italic leading-tight sm:text-5xl">{title}</h2>
       {sub && <p className="mt-4 text-lg text-neutral-600">{sub}</p>}
     </div>
   );
@@ -168,19 +187,17 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/80 to-ink/20" />
         <div className="relative mx-auto w-full max-w-6xl px-4 py-24">
-          <p className="font-display text-sm font-bold uppercase tracking-[0.25em] text-enervit">
-            B2B program pro specializované prodejny v ČR a SR
-          </p>
-          <h1 className="font-display mt-4 max-w-3xl text-5xl font-extrabold uppercase leading-[0.95] sm:text-7xl">
+          <span className="tag-bib rise">B2B program pro specializované prodejny v ČR a SR</span>
+          <h1 className="font-display rise rise-1 mt-5 max-w-3xl text-5xl font-extrabold uppercase italic leading-[0.98] sm:text-7xl">
             Prodávejte výživu, se kterou se vyhrává{" "}
-            <span className="text-enervit">Tour de France</span>
+            <span className="hl-bib">Tour de France</span>
           </h1>
-          <p className="mt-6 max-w-xl text-lg text-white/80">
+          <p className="rise rise-2 mt-6 max-w-xl text-lg text-white/80">
             Enervit pohání Tadeje Pogačara, Jannika Sinnera i největší závody v Česku a na Slovensku.
             Přidejte se ke 120+ prodejnám, které na tom vydělávají — s marží 40–55 % a podporou,
             kterou vám hardware nedá.
           </p>
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div className="rise rise-3 mt-10 flex flex-wrap gap-4">
             <a
               href="#formular"
               className="font-display rounded-lg bg-enervit px-8 py-4 text-lg font-bold uppercase tracking-wide transition hover:bg-enervit-dark"
@@ -194,7 +211,7 @@ export default function Home() {
               Jak to funguje
             </a>
           </div>
-          <div className="mt-16 grid max-w-2xl grid-cols-2 gap-6 border-t border-white/15 pt-8 text-sm sm:grid-cols-4">
+          <div className="rise rise-4 mt-16 grid max-w-2xl grid-cols-2 gap-6 border-t border-white/15 pt-8 text-sm sm:grid-cols-4">
             <div>
               <p className="font-display text-3xl font-bold text-enervit">1976</p>
               <p className="mt-1 text-white/60">italská značka s 50letou historií</p>
@@ -263,16 +280,31 @@ export default function Home() {
             title="Před. Během. Po."
             sub="Kompletní systém sportovní výživy — od energie během výkonu po regeneraci a každodenní suplementaci."
           />
-          <div className="mt-14 grid grid-cols-2 gap-6 sm:grid-cols-4">
-            {PRODUCTS.map((p) => (
-              <div key={p.name} className="rounded-2xl bg-white p-6 text-center shadow-sm transition hover:shadow-md">
-                <div className="relative mx-auto h-36 w-full">
-                  <Image src={p.src} alt={p.name} fill className="object-contain" sizes="(max-width: 640px) 45vw, 200px" />
+          <div className="relative mt-14">
+            {/* časová osa spojující fáze */}
+            <div className="absolute left-0 right-0 top-4 hidden h-0.5 bg-enervit/25 lg:block" />
+            <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+              {PHASES.map((phase) => (
+                <div key={phase.label}>
+                  <div className="relative mb-6">
+                    <span className="tag-bib">{phase.label}</span>
+                  </div>
+                  <div className="space-y-4">
+                    {phase.products.map((p) => (
+                      <div
+                        key={p.name}
+                        className="flex items-center gap-4 rounded-2xl bg-white p-4 shadow-sm transition hover:shadow-md"
+                      >
+                        <div className="relative h-20 w-16 shrink-0">
+                          <Image src={p.src} alt={p.name} fill className="object-contain" sizes="80px" />
+                        </div>
+                        <p className="font-display text-lg font-bold uppercase leading-tight">{p.name}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <p className="font-display mt-4 text-lg font-bold uppercase leading-tight">{p.name}</p>
-                <p className="mt-1 text-xs uppercase tracking-wide text-neutral-500">{p.line}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -300,8 +332,8 @@ export default function Home() {
       <section className="relative overflow-hidden bg-white py-24">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 lg:grid-cols-2">
           <div>
-            <p className="font-display text-sm font-bold uppercase tracking-[0.2em] text-enervit">Co dostanete</p>
-            <h2 className="font-display mt-2 text-4xl font-bold uppercase leading-tight sm:text-5xl">
+            <span className="tag-bib">Co dostanete</span>
+            <h2 className="font-display mt-4 text-4xl font-bold uppercase italic leading-tight sm:text-5xl">
               Partnerství, ne jen velkoobchodní ceník
             </h2>
             <ul className="mt-8 space-y-4">
@@ -373,7 +405,7 @@ export default function Home() {
       <section className="bg-enervit py-16 text-white">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-4 text-center md:flex-row md:justify-between md:text-left">
           <div>
-            <h2 className="font-display text-3xl font-bold uppercase leading-tight sm:text-4xl">
+            <h2 className="font-display text-3xl font-bold uppercase italic leading-tight sm:text-4xl">
               Jste sportovec, ne prodejna?
             </h2>
             <p className="mt-2 max-w-xl text-white/90">
@@ -420,11 +452,9 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-transparent to-ink/60" />
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 lg:grid-cols-2">
           <div className="text-white">
-            <p className="font-display text-sm font-bold uppercase tracking-[0.2em] text-enervit">
-              Přidejte se
-            </p>
-            <h2 className="font-display mt-2 text-4xl font-bold uppercase leading-tight sm:text-5xl">
-              Stihněte podzimní sezónu s Enervitem v regálu
+            <span className="tag-bib">Přidejte se</span>
+            <h2 className="font-display mt-4 text-4xl font-bold uppercase italic leading-tight sm:text-5xl">
+              Stihněte podzimní sezónu s Enervitem <span className="hl-bib">v regálu</span>
             </h2>
             <p className="mt-4 max-w-md text-white/75">
               Vyplňte formulář a do 72 hodin se vám ozve obchodní zástupce pro váš region.

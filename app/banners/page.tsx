@@ -113,10 +113,10 @@ export default function Banners() {
         <div className="absolute inset-0 flex flex-col items-start justify-between p-20">
           <Logo className="h-32 w-auto" />
           <div>
-            <p className="font-display text-[135px] font-extrabold uppercase leading-[0.92]">
+            <p className="font-display text-[135px] font-extrabold uppercase italic leading-[0.92]">
               Výživa vítězů
               <br />
-              <span className="text-enervit">Tour.</span>
+              <span className="hl-bib">Tour.</span>
             </p>
             <div className="mt-12">
               <Cta>Prodávejte ji i vy</Cta>
@@ -134,7 +134,7 @@ export default function Banners() {
         <div className="absolute inset-0 flex flex-col items-start justify-between p-20">
           <Logo className="h-32 w-auto" />
           <div className="max-w-[560px]">
-            <p className="font-display text-[120px] font-extrabold uppercase leading-[0.92] text-white">
+            <p className="font-display text-[120px] font-extrabold uppercase italic leading-[0.92] text-white">
               Balíček.
               <br />
               Zaškolení.
@@ -155,8 +155,8 @@ export default function Banners() {
         <div className="absolute inset-0 flex flex-col justify-between p-16">
           <Logo className="h-24 w-auto self-start" />
           <div>
-            <p className="font-display max-w-[720px] text-8xl font-extrabold uppercase leading-[0.92]">
-              Výživa vítězů <span className="text-enervit">Tour.</span>
+            <p className="font-display max-w-[720px] text-8xl font-extrabold uppercase italic leading-[0.92]">
+              Výživa vítězů <span className="hl-bib">Tour.</span>
             </p>
             <div className="mt-8">
               <Cta small>Prodávejte ji i vy</Cta>
@@ -190,10 +190,10 @@ export default function Banners() {
         <div className="absolute inset-0 flex flex-col items-center justify-between p-20 pb-36 text-center">
           <Logo className="h-40 w-auto" />
           <div>
-            <p className="font-display text-[150px] font-extrabold uppercase leading-[0.92]">
+            <p className="font-display text-[150px] font-extrabold uppercase italic leading-[0.92]">
               Váš regál.
               <br />
-              Jejich <span className="text-enervit">palivo.</span>
+              Jejich <span className="hl-bib">palivo.</span>
             </p>
             <div className="mt-16">
               <Cta>Staňte se partnerem</Cta>
@@ -210,10 +210,10 @@ export default function Banners() {
         <div className="absolute inset-0 flex flex-col items-start justify-between p-20">
           <Logo className="h-32 w-auto" />
           <div>
-            <p className="font-display text-[130px] font-extrabold uppercase leading-[0.92]">
+            <p className="font-display text-[130px] font-extrabold uppercase italic leading-[0.92]">
               Chybí ti Enervit
               <br />
-              <span className="text-enervit">za rohem?</span>
+              <span className="hl-bib">za rohem?</span>
             </p>
             <div className="mt-12">
               <Cta>Doporuč prodejnu</Cta>
@@ -230,10 +230,10 @@ export default function Banners() {
         <div className="absolute inset-0 flex flex-col items-center justify-between p-20 pb-36 text-center">
           <Logo className="h-40 w-auto" />
           <div>
-            <p className="font-display text-[150px] font-extrabold uppercase leading-[0.92]">
+            <p className="font-display text-[150px] font-extrabold uppercase italic leading-[0.92]">
               Tvůj obchod.
               <br />
-              Tvoje <span className="text-enervit">palivo.</span>
+              Tvoje <span className="hl-bib">palivo.</span>
             </p>
             <div className="mt-16">
               <Cta>Doporuč prodejnu</Cta>
@@ -250,8 +250,8 @@ export default function Banners() {
         <div className="absolute inset-0 flex flex-col justify-between p-16">
           <Logo className="h-24 w-auto self-start" />
           <div>
-            <p className="font-display max-w-[760px] text-8xl font-extrabold uppercase leading-[0.92]">
-              Chybí ti Enervit <span className="text-enervit">za rohem?</span>
+            <p className="font-display max-w-[760px] text-8xl font-extrabold uppercase italic leading-[0.92]">
+              Chybí ti Enervit <span className="hl-bib">za rohem?</span>
             </p>
             <div className="mt-8">
               <Cta small>Doporuč prodejnu</Cta>

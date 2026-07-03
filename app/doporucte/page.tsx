@@ -64,11 +64,9 @@ export default function Doporucte() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/75 to-ink/20" />
         <div className="relative mx-auto w-full max-w-6xl px-4 py-24">
-          <p className="font-display text-sm font-bold uppercase tracking-[0.25em] text-enervit">
-            Pro sportovce · doporučte prodejnu
-          </p>
-          <h1 className="font-display mt-4 max-w-3xl text-5xl font-extrabold uppercase leading-[0.95] sm:text-7xl">
-            Chybí vám Enervit <span className="text-enervit">za rohem?</span>
+          <span className="tag-bib rise">Pro sportovce · doporučte prodejnu</span>
+          <h1 className="font-display rise rise-1 mt-5 max-w-3xl text-5xl font-extrabold uppercase italic leading-[0.98] sm:text-7xl">
+            Chybí vám Enervit <span className="hl-bib">za rohem?</span>
           </h1>
           <p className="mt-6 max-w-xl text-lg text-white/80">
             Řekněte nám, kde byste svůj oblíbený gel nebo iso kupovali nejraději. My prodejnu oslovíme — a když se
@@ -87,8 +85,8 @@ export default function Doporucte() {
       <section className="bg-white py-24">
         <div className="mx-auto max-w-6xl px-4">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="font-display text-sm font-bold uppercase tracking-[0.2em] text-enervit">Jak to funguje</p>
-            <h2 className="font-display mt-2 text-4xl font-bold uppercase leading-tight sm:text-5xl">
+            <span className="tag-bib">Jak to funguje</span>
+            <h2 className="font-display mt-4 text-4xl font-bold uppercase italic leading-tight sm:text-5xl">
               Tři kroky k Enervitu ve vaší prodejně
             </h2>
           </div>
@@ -116,8 +114,8 @@ export default function Doporucte() {
         <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-transparent to-ink/60" />
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 lg:grid-cols-2">
           <div className="text-white">
-            <p className="font-display text-sm font-bold uppercase tracking-[0.2em] text-enervit">2 minuty</p>
-            <h2 className="font-display mt-2 text-4xl font-bold uppercase leading-tight sm:text-5xl">
+            <span className="tag-bib">2 minuty</span>
+            <h2 className="font-display mt-4 text-4xl font-bold uppercase italic leading-tight sm:text-5xl">
               Kde máme zaklepat?
             </h2>
             <p className="mt-4 max-w-md text-white/75">

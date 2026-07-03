@@ -35,3 +35,59 @@ details.faq summary::-webkit-details-marker {
 details.faq[open] .faq-plus {
   transform: rotate(45deg);
 }
+
+/* Signature: šikmý "štartovní číslo" tag — odvozeno z oblique logotypu a diagonálního řezu C2:1 obalů */
+.tag-bib {
+  display: inline-block;
+  transform: skewX(-8deg);
+  background: #e40521;
+  color: #fff;
+  padding: 0.35rem 0.9rem;
+  font-family: var(--font-barlow), sans-serif;
+  font-style: italic;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+}
+
+.hl-bib {
+  display: inline-block;
+  transform: skewX(-8deg);
+  background: #e40521;
+  color: #fff;
+  padding: 0 0.18em 0.05em;
+  white-space: nowrap;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise {
+  animation: rise 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.rise-1 { animation-delay: 0.05s; }
+.rise-2 { animation-delay: 0.15s; }
+.rise-3 { animation-delay: 0.25s; }
+.rise-4 { animation-delay: 0.35s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .rise,
+  .rise-1,
+  .rise-2,
+  .rise-3,
+  .rise-4 {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
