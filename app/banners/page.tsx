@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import BannerZoom from "@/components/BannerZoom";
 
 export const metadata: Metadata = {
   title: "Kampaňové bannery — interní",
@@ -30,21 +31,23 @@ function Frame({
   w,
   h,
   label,
+  id,
   children,
 }: {
   w: number;
   h: number;
   label: string;
+  id: string;
   children: React.ReactNode;
 }) {
   return (
-    <div className="mb-16">
+    <div className="mb-16 scroll-mt-24" id={id}>
       <p className="mb-3 font-mono text-sm text-neutral-500">
-        {label} — {w}×{h}
+        <span className="font-bold text-ink">{id.toUpperCase()}</span> · {label} — {w}×{h}
       </p>
       <div
         className="relative overflow-hidden bg-ink text-white shadow-2xl"
-        style={{ width: w, height: h }}
+        style={{ width: w, height: h, zoom: "var(--banner-zoom, 0.5)" }}
       >
         {children}
       </div>
@@ -52,17 +55,43 @@ function Frame({
   );
 }
 
+const INDEX = [
+  { id: "a1", label: "A1 marže · feed" },
+  { id: "b1", label: "B1 Pogačar · feed" },
+  { id: "c1", label: "C1 podpora · feed" },
+  { id: "b2", label: "B2 Pogačar · link ad" },
+  { id: "a2", label: "A2 marže · link ad" },
+  { id: "b3", label: "B3 Pogačar · story" },
+  { id: "d1", label: "D1 doporuč · feed" },
+  { id: "d2", label: "D2 doporuč · story" },
+  { id: "d3", label: "D3 doporuč · link ad" },
+  { id: "a3", label: "A3 marže · leaderboard" },
+  { id: "a4", label: "A4 marže · rectangle" },
+];
+
 export default function Banners() {
   return (
     <main className="min-h-screen overflow-x-auto bg-neutral-100 p-10">
       <h1 className="font-display text-3xl font-bold uppercase">Kampaňové bannery — Fueled by Enervit (interní)</h1>
-      <p className="mb-12 mt-2 max-w-2xl text-sm text-neutral-600">
-        Tři copy varianty (A marže · B Pogačar · C podpora) v hlavních formátech. Screenshot při 100% zoomu = hotový
-        export.
+      <p className="mt-2 max-w-2xl text-sm text-neutral-600">
+        Čtyři copy linky: <b>A</b> marže · <b>B</b> Pogačar · <b>C</b> podpora · <b>D</b> doporuč prodejnu (B2C).
+        Pro export přepněte na 100 % a udělejte screenshot banneru.
       </p>
+      <nav className="mb-6 mt-4 flex max-w-4xl flex-wrap gap-2">
+        {INDEX.map((i) => (
+          <a
+            key={i.id}
+            href={`#${i.id}`}
+            className="rounded-full border border-neutral-300 bg-white px-3 py-1.5 text-xs font-semibold text-neutral-700 transition hover:border-enervit hover:text-enervit"
+          >
+            {i.label}
+          </a>
+        ))}
+      </nav>
+      <BannerZoom />
 
       {/* ============ VARIANTA A — MARŽE (1080×1080, feed) ============ */}
-      <Frame w={1080} h={1080} label="A1 · Meta feed · marže">
+      <Frame id="a1" w={1080} h={1080} label="Meta feed · marže">
         <Image src="/img/win-pogacar.jpg" alt="" fill className="object-cover object-[45%_top] opacity-45" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
         <div className="absolute inset-0 flex flex-col justify-between p-16">
@@ -85,7 +114,7 @@ export default function Banners() {
       </Frame>
 
       {/* ============ VARIANTA B — POGAČAR (1080×1080, feed) ============ */}
-      <Frame w={1080} h={1080} label="B1 · Meta feed · Pogačar">
+      <Frame id="b1" w={1080} h={1080} label="Meta feed · Pogačar">
         <Image src="/img/hero-pogacar.jpg" alt="" fill className="object-cover object-[62%_20%] opacity-60" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent" />
         <div className="absolute inset-0 flex flex-col justify-between p-16">
@@ -107,7 +136,7 @@ export default function Banners() {
       </Frame>
 
       {/* ============ VARIANTA C — PODPORA (1080×1080, feed) ============ */}
-      <Frame w={1080} h={1080} label="C1 · Meta feed · podpora">
+      <Frame id="c1" w={1080} h={1080} label="Meta feed · podpora">
         <div className="absolute inset-0 bg-enervit" />
         <div className="absolute -right-24 bottom-0 top-24 w-[560px]">
           <Image src="/img/p-purepro.png" alt="" fill className="object-contain object-bottom" />
@@ -134,7 +163,7 @@ export default function Banners() {
       </Frame>
 
       {/* ============ 1200×628 link ad (B) ============ */}
-      <Frame w={1200} h={628} label="B2 · Meta link ad / GDN · Pogačar">
+      <Frame id="b2" w={1200} h={628} label="Meta link ad / GDN · Pogačar">
         <Image src="/img/hero-pogacar.jpg" alt="" fill className="object-cover object-[70%_20%] opacity-60" />
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/70 to-transparent" />
         <div className="absolute inset-0 flex flex-col justify-center p-14">
@@ -150,7 +179,7 @@ export default function Banners() {
       </Frame>
 
       {/* ============ 1200×628 link ad (A) ============ */}
-      <Frame w={1200} h={628} label="A2 · Meta link ad / GDN · marže">
+      <Frame id="a2" w={1200} h={628} label="Meta link ad / GDN · marže">
         <div className="absolute inset-0 bg-ink" />
         <div className="absolute -right-10 bottom-0 top-16 w-[460px]">
           <Image src="/img/p-carbogel.png" alt="" fill className="object-contain object-bottom" />
@@ -169,7 +198,7 @@ export default function Banners() {
       </Frame>
 
       {/* ============ 1080×1920 story ============ */}
-      <Frame w={1080} h={1920} label="B3 · IG/FB story · Pogačar">
+      <Frame id="b3" w={1080} h={1920} label="IG/FB story · Pogačar">
         <Image src="/img/win-pogacar.jpg" alt="" fill className="object-cover object-[45%_top] opacity-55" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-ink/60" />
         <div className="absolute inset-0 flex flex-col justify-between p-20 pb-32">
@@ -193,7 +222,7 @@ export default function Banners() {
       </Frame>
 
       {/* ============ VARIANTA D — DOPORUČ (1080×1080, B2C feed) ============ */}
-      <Frame w={1080} h={1080} label="D1 · Meta feed B2C · doporuč prodejnu">
+      <Frame id="d1" w={1080} h={1080} label="Meta feed B2C · doporuč prodejnu">
         <Image src="/img/win-pogacar.jpg" alt="" fill className="object-cover object-[45%_top] opacity-50" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
         <div className="absolute inset-0 flex flex-col justify-between p-16">
@@ -218,7 +247,7 @@ export default function Banners() {
       </Frame>
 
       {/* ============ VARIANTA D — DOPORUČ (1080×1920, story) ============ */}
-      <Frame w={1080} h={1920} label="D2 · IG story B2C · doporuč prodejnu">
+      <Frame id="d2" w={1080} h={1920} label="IG story B2C · doporuč prodejnu">
         <Image src="/img/hero-pogacar.jpg" alt="" fill className="object-cover object-[58%_20%] opacity-55" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-ink/60" />
         <div className="absolute inset-0 flex flex-col justify-between p-20 pb-32">
@@ -242,8 +271,26 @@ export default function Banners() {
         </div>
       </Frame>
 
+      {/* ============ VARIANTA D — DOPORUČ (1200×628, link ad) ============ */}
+      <Frame id="d3" w={1200} h={628} label="Meta link ad B2C · doporuč prodejnu">
+        <Image src="/img/win-pogacar.jpg" alt="" fill className="object-cover object-[45%_top] opacity-50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/70 to-transparent" />
+        <div className="absolute inset-0 flex flex-col justify-center p-14">
+          <Logo className="mb-8 h-16 w-auto self-start" />
+          <p className="font-display max-w-[760px] text-7xl font-extrabold uppercase leading-[0.95]">
+            Doporuč prodejnu, získej <span className="text-enervit">balíček na svůj cíl</span>
+          </p>
+          <div className="mt-8 flex items-center gap-6">
+            <span className="font-display inline-block rounded-lg bg-white px-6 py-3 text-xl font-bold uppercase tracking-wide text-enervit">
+              Doporučit prodejnu →
+            </span>
+            <span className="text-xl font-semibold text-white/70">{URL_LABEL}/doporucte</span>
+          </div>
+        </div>
+      </Frame>
+
       {/* ============ 970×250 leaderboard ============ */}
-      <Frame w={970} h={250} label="A3 · leaderboard · marže">
+      <Frame id="a3" w={970} h={250} label="leaderboard · marže">
         <div className="absolute inset-0 bg-enervit" />
         <div className="absolute inset-0 flex items-center gap-10 px-12">
           <Logo className="h-14 w-auto shrink-0" />
@@ -257,7 +304,7 @@ export default function Banners() {
       </Frame>
 
       {/* ============ 300×250 rectangle ============ */}
-      <Frame w={300} h={250} label="A4 · medium rectangle · marže">
+      <Frame id="a4" w={300} h={250} label="medium rectangle · marže">
         <div className="absolute inset-0 bg-ink" />
         <div className="absolute inset-0 flex flex-col justify-between p-6">
           <Logo className="h-9 w-auto self-start" />
