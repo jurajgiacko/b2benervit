@@ -16,6 +16,9 @@ const barlow = Barlow_Condensed({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://b2b.enervit.online"),
+  alternates: {
+    languages: { cs: "/", sk: "/sk" },
+  },
   title: "Staňte se partnerem Enervit | B2B program pro specializované prodejny",
   description:
     "Prodávejte sportovní výživu, se kterou se vyhrává Tour de France. Marže 40–55 %, startovací balíček, osobní obchodní zástupce a poptávka z největších závodů v ČR a SR.",

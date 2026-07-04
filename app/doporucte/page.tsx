@@ -108,10 +108,11 @@ export default function Doporucte() {
           src="/img/products-range.jpg"
           alt="Produktová řada Enervit C2:1PRO"
           fill
-          className="object-cover object-[center_35%] opacity-20"
+          className="object-cover object-[center_30%] opacity-35"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-transparent to-ink/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/40 to-ink/25" />
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/80 via-transparent to-ink/80" />
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 lg:grid-cols-2">
           <div className="text-white">
             <span className="tag-bib">2 minuty</span>

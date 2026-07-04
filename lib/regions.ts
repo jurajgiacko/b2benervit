@@ -57,6 +57,18 @@ export const STORE_TYPES = [
   "Jiné",
 ];
 
+export const STORE_TYPES_SK = [
+  "Cyklo predajňa",
+  "Bežecká predajňa",
+  "Fitness / posilňovňa",
+  "Predajňa športovej výživy",
+  "Lekáreň",
+  "Športový klub / oddiel",
+  "Obchodná sieť",
+  "E-shop",
+  "Iné",
+];
+
 export function repForRegion(regionValue: string): Rep | null {
   const region = REGIONS.find((r) => r.value === regionValue);
   return region ? REPS[region.rep] : null;
