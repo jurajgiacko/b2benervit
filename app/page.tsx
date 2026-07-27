@@ -1,6 +1,45 @@
 import Image from "next/image";
 import LeadForm from "@/components/LeadForm";
+import WaitlistForm from "@/components/WaitlistForm";
 import { REPS } from "@/lib/regions";
+
+// Vlna červenec 2026 — tři ověřené výsledky na Enervitu do 15 dnů.
+// Řazeno chronologicky; datum je součástí důkazu, ne dekorace.
+const WINS = [
+  {
+    date: "12. 7. 2026",
+    who: "Jannik Sinner",
+    what: "Obhájil Wimbledon",
+    detail:
+      "Ve finále zdolal Alexandera Zvereva 6:7, 7:6, 6:3, 6:4. Pátý grandslam, šestý titul sezóny. Enervit je jeho oficiálním výživovým partnerem od roku 2024.",
+    tag: "Tenis",
+  },
+  {
+    date: "červenec 2026",
+    who: "Tereza Rauturier",
+    what: "Mistryně světa",
+    detail:
+      "Zlato v knock-out sprintu na MS v orientačním běhu v italském Janově — první české individuální zlato po sedmnácti letech.",
+    tag: "Orientační běh",
+  },
+  {
+    date: "26. 7. 2026",
+    who: "Tadej Pogačar",
+    what: "Pátá Tour de France",
+    detail:
+      "Náskok 6:26 na druhého Evenepoela. Isaac del Toro dojel třetí a vzal bílý dres — dva ze tří na pódiu z UAE Team Emirates-XRG, které Enervit živí od roku 2020.",
+    tag: "Cyklistika",
+  },
+];
+
+const PARTNER_LOGOS = [
+  { src: "/img/partners/logo_jiz50.svg", alt: "ČEZ Jizerská 50" },
+  { src: "/img/partners/logo_dukla.png", alt: "ASC Dukla" },
+  { src: "/img/partners/logo_paralymp.svg", alt: "Český paralympijský výbor" },
+  { src: "/img/partners/logo_rc.svg", alt: "Road Classics" },
+  { src: "/img/partners/logo_att.svg", alt: "ATT Investments" },
+  { src: "/img/partners/logo_raul.png", alt: "RAUL" },
+];
 
 const BENEFITS = [
   {
@@ -98,7 +137,7 @@ const STEPS = [
   {
     n: "02",
     title: "Ozve se váš zástupce",
-    text: "Do 72 hodin vás kontaktuje obchodní zástupce pro váš region a domluví si s vámi schůzku nebo hovor.",
+    text: "Do 24 hodin vás kontaktuje obchodní zástupce pro váš region a domluví si s vámi schůzku nebo hovor.",
   },
   {
     n: "03",
@@ -169,6 +208,7 @@ export default function Home() {
           <nav className="hidden items-center gap-8 text-sm font-medium text-white/80 md:flex">
             <a href="#vyhody" className="transition hover:text-white">Proč Enervit</a>
             <a href="#segmenty" className="transition hover:text-white">Pro koho</a>
+            <a href="#lactate" className="transition hover:text-white">Lactate Gel</a>
             <a href="#jak" className="transition hover:text-white">Jak to funguje</a>
             <a href="#tym" className="transition hover:text-white">Váš zástupce</a>
             <a href="#faq" className="transition hover:text-white">FAQ</a>
@@ -209,13 +249,13 @@ export default function Home() {
         <div className="relative mx-auto w-full max-w-6xl px-4 py-24">
           <span className="tag-bib rise">B2B program pro specializované prodejny v ČR a SR</span>
           <h1 className="font-display rise rise-1 mt-5 max-w-3xl text-5xl font-extrabold uppercase italic leading-[0.98] sm:text-7xl">
-            Prodávejte výživu, se kterou se vyhrává{" "}
-            <span className="hl-bib">Tour de France</span>
+            Prodávejte výživu, se kterou se{" "}
+            <span className="hl-bib">v červenci vyhrálo</span> všechno
           </h1>
           <p className="rise rise-2 mt-6 max-w-xl text-lg text-white/80">
-            Enervit pohání Tadeje Pogačara, Jannika Sinnera i největší závody v Česku a na Slovensku.
-            Přidejte se ke 120+ prodejnám, které na tom vydělávají — s marží 40–55 % a podporou,
-            kterou vám hardware nedá.
+            Pátá Tour de France pro Pogačara. Obhájený Wimbledon pro Sinnera. Zlato z mistrovství
+            světa pro Terezu Rauturier. Za patnáct dnů, na jedné výživě — a vaši zákazníci ji zatím
+            nemají u vás kde koupit.
           </p>
           <div className="rise rise-3 mt-10 flex flex-wrap gap-4">
             <a
@@ -237,8 +277,8 @@ export default function Home() {
               <p className="mt-1 text-white/60">italská značka s 50letou historií</p>
             </div>
             <div>
-              <p className="font-display text-3xl font-bold text-enervit">120+</p>
-              <p className="mt-1 text-white/60">aktivních partnerů v ČR/SR</p>
+              <p className="font-display text-3xl font-bold text-enervit">262</p>
+              <p className="mt-1 text-white/60">partnerů nakoupilo v 1. pololetí 2026</p>
             </div>
             <div>
               <p className="font-display text-3xl font-bold text-enervit">3</p>
@@ -247,6 +287,55 @@ export default function Home() {
             <div>
               <p className="font-display text-3xl font-bold text-enervit">UAE</p>
               <p className="mt-1 text-white/60">oficiální výživa UAE Team Emirates</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Vlna 2026 — důkaz hned pod heroem, bez scrollování */}
+      <section id="vlna" className="bg-ink pb-20 text-white">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="border-t border-white/15 pt-16">
+            <span className="tag-bib">Červenec 2026</span>
+            <h2 className="font-display mt-4 max-w-2xl text-4xl font-bold uppercase italic leading-tight sm:text-5xl">
+              Patnáct dnů, tři vítězství, jedna výživa
+            </h2>
+          </div>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {WINS.map((w) => (
+              <article
+                key={w.who}
+                className="flex flex-col rounded-2xl border border-white/10 bg-white/5 p-7 transition hover:border-enervit/60"
+              >
+                <div className="flex items-baseline justify-between gap-3">
+                  <time className="font-display text-sm font-bold uppercase tracking-wide text-enervit">
+                    {w.date}
+                  </time>
+                  <span className="text-xs uppercase tracking-[0.15em] text-white/40">{w.tag}</span>
+                </div>
+                <h3 className="font-display mt-4 text-2xl font-bold uppercase leading-tight">{w.who}</h3>
+                <p className="font-display mt-1 text-lg font-bold uppercase italic text-white/70">{w.what}</p>
+                <p className="mt-4 text-sm leading-relaxed text-white/60">{w.detail}</p>
+              </article>
+            ))}
+          </div>
+
+          {/* Domácí důkaz — vyvažuje italskou/globální stopu */}
+          <div className="mt-16 border-t border-white/10 pt-10">
+            <p className="font-display text-center text-xs font-bold uppercase tracking-[0.2em] text-white/40">
+              A doma jsme partnerem
+            </p>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-12 gap-y-8">
+              {PARTNER_LOGOS.map((logo) => (
+                <Image
+                  key={logo.src}
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={150}
+                  height={56}
+                  className="h-10 w-auto opacity-60 brightness-0 invert transition hover:opacity-100 sm:h-12"
+                />
+              ))}
             </div>
           </div>
         </div>
@@ -350,6 +439,45 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Lactate gel — samostatný konverzní bod s termínem */}
+      <section id="lactate" className="relative overflow-hidden bg-ink py-24 text-white">
+        <Image
+          src="/img/tdf-drink-road.jpg"
+          alt="Tadej Pogačar ve žlutém dresu pije během etapy Tour de France"
+          fill
+          className="object-cover object-[70%_center] opacity-45"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/30" />
+        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 lg:grid-cols-2">
+          <div>
+            <span className="tag-bib">Novinka s termínem</span>
+            <h2 className="font-display mt-4 text-4xl font-bold uppercase italic leading-tight sm:text-5xl">
+              Zatím to má jen tým UAE.
+              <br />
+              <span className="hl-bib">Po 13. září</span> i vaše prodejna.
+            </h2>
+            <p className="mt-6 max-w-md text-white/75">
+              <strong className="font-semibold text-white">Enervit C2:1PRO Lactate Gel Mix</strong> —
+              dva roky vývoje přímo s jezdci UAE Team Emirates-XRG, na formulaci se podíleli
+              prof. George A. Brooks a Dr. Iñigo San Millán. Poprvé se objevil na letošní Tour.
+            </p>
+            <p className="mt-4 max-w-md text-white/75">
+              Zatím ho používá výhradně tým. Do prodeje jde po La Vueltě, která končí 13. září.
+              <strong className="font-semibold text-white">
+                {" "}
+                První várka je omezená a rozdělujeme ji přednostně partnerům, kteří jsou nalistovaní.
+              </strong>
+            </p>
+            <p className="mt-6 text-sm text-white/45">
+              Zápis na seznam vás k ničemu nezavazuje. Až bude zboží připravené, ozveme se vám dřív
+              než ostatním.
+            </p>
+          </div>
+          <WaitlistForm />
         </div>
       </section>
 
@@ -499,11 +627,12 @@ export default function Home() {
           <div className="text-white">
             <span className="tag-bib">Přidejte se</span>
             <h2 className="font-display mt-4 text-4xl font-bold uppercase italic leading-tight sm:text-5xl">
-              Stihněte podzimní sezónu s Enervitem <span className="hl-bib">v regálu</span>
+              Na jaře 2027 mít Enervit <span className="hl-bib">v regálu</span>
             </h2>
             <p className="mt-4 max-w-md text-white/75">
-              Vyplňte formulář a do 72 hodin se vám ozve obchodní zástupce pro váš region.
-              Bez závazků — jen si spolu projdete, jestli to dává smysl.
+              O tom, co budete mít na pultě v březnu, se rozhoduje teď na podzim. Vyplňte formulář
+              a do 24 hodin se vám ozve obchodní zástupce pro váš region. Bez závazků — jen si
+              spolu projdete, jestli to dává smysl.
             </p>
           </div>
           <LeadForm />

@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Enervit B2B — partnerský program pro specializované prodejny",
     description:
-      "Marže 40–55 %, poptávka z největších závodů v ČR/SR a osobní podpora. Přidejte se ke 120+ prodejnám.",
+      "Pátá Tour pro Pogačara, obhájený Wimbledon pro Sinnera, zlato z MS pro Rauturier — všechno na Enervitu. Marže 40–55 %, startovací balíček a osobní zástupce.",
     images: ["/img/hero-pogacar.jpg"],
     locale: "cs_CZ",
     type: "website",

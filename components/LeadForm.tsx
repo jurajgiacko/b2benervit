@@ -9,8 +9,8 @@ type Locale = "cs" | "sk";
 const T = {
   cs: {
     successTitle: "Máme to!",
-    successWithRep: (rep: string) => `${rep}, obchodní zástupce pro váš region, se vám ozve do 72 hodin.`,
-    successNoRep: "Náš obchodní zástupce se vám ozve do 72 hodin.",
+    successWithRep: (rep: string) => `${rep}, obchodní zástupce pro váš region, se vám ozve do 24 hodin.`,
+    successNoRep: "Náš obchodní zástupce se vám ozve do 24 hodin.",
     storeName: "Název prodejny / firmy *",
     storeNamePh: "např. Bike Point Beroun",
     storeType: "Typ prodejny *",
@@ -32,12 +32,12 @@ const T = {
     error: "Odeslání se nepovedlo. Zkuste to prosím znovu, nebo nám napište na e-mail.",
     submit: "Chci nabídku pro svou prodejnu",
     sending: "Odesílám…",
-    footnote: "Odpovídáme do 72 hodin. Žádný spam, žádné závazky.",
+    footnote: "Odpovídáme do 24 hodin. Žádný spam, žádné závazky.",
   },
   sk: {
     successTitle: "Máme to!",
-    successWithRep: (rep: string) => `${rep}, obchodný zástupca pre váš región, sa vám ozve do 72 hodín.`,
-    successNoRep: "Náš obchodný zástupca sa vám ozve do 72 hodín.",
+    successWithRep: (rep: string) => `${rep}, obchodný zástupca pre váš región, sa vám ozve do 24 hodín.`,
+    successNoRep: "Náš obchodný zástupca sa vám ozve do 24 hodín.",
     storeName: "Názov predajne / firmy *",
     storeNamePh: "napr. Bike Point Trenčín",
     storeType: "Typ predajne *",
@@ -59,7 +59,7 @@ const T = {
     error: "Odoslanie sa nepodarilo. Skúste to prosím znova, alebo nám napíšte e-mail.",
     submit: "Chcem ponuku pre svoju predajňu",
     sending: "Odosielam…",
-    footnote: "Odpovedáme do 72 hodín. Žiadny spam, žiadne záväzky.",
+    footnote: "Odpovedáme do 24 hodín. Žiadny spam, žiadne záväzky.",
   },
 } as const;
 
