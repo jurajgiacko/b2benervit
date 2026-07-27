@@ -399,14 +399,14 @@ export default function Home() {
           </div>
           <div className="relative h-[480px] overflow-hidden rounded-2xl">
             <Image
-              src="/img/win-pogacar.jpg"
-              alt="Tadej Pogačar slaví vítězství ve žlutém dresu Tour de France"
+              src="/img/tdf-shelf.jpg"
+              alt="Tadej Pogačar ve žlutém dresu u regálu s výživou Enervit v týmovém kamionu UAE Team Emirates XRG"
               fill
-              className="object-cover"
+              className="object-cover object-[40%_center]"
               sizes="(max-width: 1024px) 100vw, 560px"
             />
-            <p className="absolute bottom-4 left-4 rounded bg-ink/70 px-3 py-1.5 text-xs font-medium text-white">
-              Tadej Pogačar — vítěz Tour de France, spoléhá na Enervit
+            <p className="absolute bottom-4 left-4 right-4 rounded bg-ink/75 px-3 py-1.5 text-xs font-medium text-white">
+              Regál v kamionu UAE Team Emirates XRG. Stejné produkty, jaké můžete mít v prodejně.
             </p>
           </div>
         </div>

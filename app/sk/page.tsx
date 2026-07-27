@@ -414,14 +414,14 @@ export default function HomeSK() {
           </div>
           <div className="relative h-[480px] overflow-hidden rounded-2xl">
             <Image
-              src="/img/win-pogacar.jpg"
-              alt="Tadej Pogačar oslavuje víťazstvo v žltom drese Tour de France"
+              src="/img/tdf-shelf.jpg"
+              alt="Tadej Pogačar v žltom drese pri regáli s výživou Enervit v tímovom kamióne UAE Team Emirates XRG"
               fill
-              className="object-cover"
+              className="object-cover object-[40%_center]"
               sizes="(max-width: 1024px) 100vw, 560px"
             />
-            <p className="absolute bottom-4 left-4 rounded bg-ink/70 px-3 py-1.5 text-xs font-medium text-white">
-              Tadej Pogačar — víťaz Tour de France, spolieha sa na Enervit
+            <p className="absolute bottom-4 left-4 right-4 rounded bg-ink/75 px-3 py-1.5 text-xs font-medium text-white">
+              Regál v kamióne UAE Team Emirates XRG. Rovnaké produkty, aké môžete mať v predajni.
             </p>
           </div>
         </div>
