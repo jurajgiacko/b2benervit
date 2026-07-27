@@ -33,7 +33,7 @@
 | Posolstvo | Dôkaz |
 |---|---|
 | 1. Marža, ktorá dáva zmysel | Rabat 25–30 % pre specialty segment + objemové bonusy (+3 % nad 500K, +5 % nad 1M, +7 % nad 2M) → marža 40–55 % |
-| 2. Značka, ktorá sa predáva sama | Od 1976, oficiálna výživa UAE Team Emirates (Pogačar), Jannik Sinner; hlavný partner Jizerskej 50, Pražského polmaratónu, ČSOB Bratislava Marathon — eventy privádzajú dopyt priamo do regiónov |
+| 2. Značka, ktorá sa predáva sama | Od 1954 (značka Enervit od 1974), oficiálna výživa UAE Team Emirates (Pogačar), Jannik Sinner; hlavný partner Jizerskej 50, Pražského polmaratónu, ČSOB Bratislava Marathon — eventy privádzajú dopyt priamo do regiónov |
 | 3. Nízkorizikový štart | Štartovací balíček (odporúčaný mix + POS + testery + zaškolenie), bez záväzku minimálnych odberov v prvom roku |
 | 4. Nie ste v tom sami | Osobný obchodný zástupca pre región (Karolína/Jirka/Štěpán), odpoveď do 72 h, B2B portál s reálnymi skladmi a objednávkou na pár klikov |
 

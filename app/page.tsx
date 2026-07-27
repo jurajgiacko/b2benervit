@@ -1,6 +1,7 @@
 import Image from "next/image";
 import LeadForm from "@/components/LeadForm";
 import WaitlistForm from "@/components/WaitlistForm";
+import SegmentIcon, { type SegmentIconName } from "@/components/SegmentIcon";
 import { REPS } from "@/lib/regions";
 
 // Vlna červenec 2026 — tři ověřené výsledky na Enervitu do 15 dnů.
@@ -105,26 +106,26 @@ const SUBBRANDS = [
   },
 ];
 
-const SEGMENTS = [
+const SEGMENTS: { title: string; desc: string; icon: SegmentIconName }[] = [
   {
     title: "Specializované prodejny",
     desc: "Cyklo, běh, outdoor, sportovní výživa. Vysokoobrátkový doplněk k hardwaru s marží, kterou kola ani boty nedají.",
-    icon: "🚴",
+    icon: "store",
   },
   {
     title: "Fitness & gymy",
     desc: "Proteiny, kreatin a snacky přímo na recepci. Řada Pure Pro a The Protein Deal je stavěná pro gym prostředí.",
-    icon: "💪",
+    icon: "gym",
   },
   {
     title: "Kluby a oddíly",
     desc: "Týmové fueling programy pro hokej, fotbal, cyklistiku i běžecké oddíly — od tréninku po zápasový den.",
-    icon: "🏆",
+    icon: "club",
   },
   {
     title: "Obchodní sítě a lékárny",
     desc: "Retailové řešení s planogramem, POS podporou a logistikou. Enervit už dnes najdete v sítích po celé ČR.",
-    icon: "🏪",
+    icon: "retail",
   },
 ];
 
@@ -273,8 +274,8 @@ export default function Home() {
           </div>
           <div className="rise rise-4 mt-16 grid max-w-2xl grid-cols-2 gap-6 border-t border-white/15 pt-8 text-sm sm:grid-cols-4">
             <div>
-              <p className="font-display text-3xl font-bold text-enervit">1976</p>
-              <p className="mt-1 text-white/60">italská značka s 50letou historií</p>
+              <p className="font-display text-3xl font-bold text-enervit">1954</p>
+              <p className="mt-1 text-white/60">italská značka, 70 let ve výživě</p>
             </div>
             <div>
               <p className="font-display text-3xl font-bold text-enervit">262</p>
@@ -372,8 +373,8 @@ export default function Home() {
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {SEGMENTS.map((s) => (
               <div key={s.title} className="rounded-2xl bg-paper p-7 transition hover:-translate-y-1 hover:shadow-lg">
-                <span className="text-4xl">{s.icon}</span>
-                <h3 className="font-display mt-4 text-xl font-bold uppercase leading-tight">{s.title}</h3>
+                <SegmentIcon name={s.icon} />
+                <h3 className="font-display mt-5 text-xl font-bold uppercase leading-tight">{s.title}</h3>
                 <p className="mt-2 text-sm text-neutral-600">{s.desc}</p>
               </div>
             ))}

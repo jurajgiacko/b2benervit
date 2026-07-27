@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import LeadForm from "@/components/LeadForm";
 import WaitlistForm from "@/components/WaitlistForm";
+import SegmentIcon, { type SegmentIconName } from "@/components/SegmentIcon";
 import { REPS } from "@/lib/regions";
 
 // Vlna júl 2026 — tri overené výsledky na Enervite za 15 dní.
@@ -121,26 +122,26 @@ const SUBBRANDS = [
   },
 ];
 
-const SEGMENTS = [
+const SEGMENTS: { title: string; desc: string; icon: SegmentIconName }[] = [
   {
     title: "Špecializované predajne",
     desc: "Cyklo, beh, outdoor, športová výživa. Vysokoobrátkový doplnok k hardvéru s maržou, ktorú bicykle ani tenisky nedajú.",
-    icon: "🚴",
+    icon: "store",
   },
   {
     title: "Fitness & gymy",
     desc: "Proteíny, kreatín a snacky priamo na recepcii. Rady Pure Pro a The Protein Deal sú stavané pre gym prostredie.",
-    icon: "💪",
+    icon: "gym",
   },
   {
     title: "Kluby a oddiely",
     desc: "Tímové fueling programy pre hokej, futbal, cyklistiku aj bežecké oddiely — od tréningu po zápasový deň.",
-    icon: "🏆",
+    icon: "club",
   },
   {
     title: "Obchodné siete a lekárne",
     desc: "Retailové riešenie s planogramom, POS podporou a logistikou. Enervit už dnes nájdete v sieťach v celej ČR aj SR.",
-    icon: "🏪",
+    icon: "retail",
   },
 ];
 
@@ -289,8 +290,8 @@ export default function HomeSK() {
           </div>
           <div className="rise rise-4 mt-16 grid max-w-2xl grid-cols-2 gap-6 border-t border-white/15 pt-8 text-sm sm:grid-cols-4">
             <div>
-              <p className="font-display text-3xl font-bold text-enervit">1976</p>
-              <p className="mt-1 text-white/60">talianska značka s 50-ročnou históriou</p>
+              <p className="font-display text-3xl font-bold text-enervit">1954</p>
+              <p className="mt-1 text-white/60">talianska značka, 70 rokov vo výžive</p>
             </div>
             <div>
               <p className="font-display text-3xl font-bold text-enervit">262</p>
@@ -387,8 +388,8 @@ export default function HomeSK() {
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {SEGMENTS.map((s) => (
               <div key={s.title} className="rounded-2xl bg-paper p-7 transition hover:-translate-y-1 hover:shadow-lg">
-                <span className="text-4xl">{s.icon}</span>
-                <h3 className="font-display mt-4 text-xl font-bold uppercase leading-tight">{s.title}</h3>
+                <SegmentIcon name={s.icon} />
+                <h3 className="font-display mt-5 text-xl font-bold uppercase leading-tight">{s.title}</h3>
                 <p className="mt-2 text-sm text-neutral-600">{s.desc}</p>
               </div>
             ))}
