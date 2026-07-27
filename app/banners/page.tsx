@@ -57,12 +57,17 @@ function Frame({
 }
 
 const INDEX = [
+  { id: "e1", label: "E1 lactate · feed" },
+  { id: "e2", label: "E2 lactate · link ad" },
+  { id: "e3", label: "E3 lactate · story" },
+  { id: "f1", label: "F1 regál · feed" },
+  { id: "f2", label: "F2 regál · link ad" },
   { id: "a1", label: "A1 marže · feed" },
-  { id: "b1", label: "B1 Pogačar · feed" },
+  { id: "b1", label: "B1 vlna · feed" },
   { id: "c1", label: "C1 podpora · feed" },
-  { id: "b2", label: "B2 Pogačar · link ad" },
+  { id: "b2", label: "B2 vlna · link ad" },
   { id: "a2", label: "A2 marže · link ad" },
-  { id: "b3", label: "B3 Pogačar · story" },
+  { id: "b3", label: "B3 vlna · story" },
   { id: "d1", label: "D1 doporuč · feed" },
   { id: "d2", label: "D2 doporuč · story" },
   { id: "d3", label: "D3 doporuč · link ad" },
@@ -75,8 +80,14 @@ export default function Banners() {
     <main className="min-h-screen overflow-x-auto bg-neutral-100 p-10">
       <h1 className="font-display text-3xl font-bold uppercase">Kampaňové bannery — Fueled by Enervit (interní)</h1>
       <p className="mt-2 max-w-2xl text-sm text-neutral-600">
-        Čtyři copy linky: <b>A</b> marže · <b>B</b> Pogačar · <b>C</b> podpora · <b>D</b> doporuč prodejnu (B2C).
+        Šest copy linek: <b>E</b> lactate gel (termín) · <b>F</b> regál · <b>A</b> marže · <b>B</b> vlna vítězství ·
+        <b> C</b> podpora · <b>D</b> doporuč prodejnu (B2C).
         Pro export přepněte na 100 % a udělejte screenshot banneru.
+      </p>
+      <p className="mt-2 max-w-2xl text-sm text-neutral-600">
+        Do testu ve Vlně 1 jdou proti sobě <b>F1 · A1 · E1</b> (důkaz vs. ekonomika vs. novinka s termínem).
+        Kill‑kritérium: linka s CPL &gt; 1 000 Kč po 10 000 Kč spendu se vypíná. Linka E má smysl až od
+        7. 9. — do té doby o lactate gelu nemluvíme veřejně.
       </p>
       <nav className="mb-6 mt-4 flex max-w-4xl flex-wrap gap-2">
         {INDEX.map((i) => (
@@ -106,18 +117,121 @@ export default function Banners() {
         </div>
       </Frame>
 
-      {/* ============ B1 · POGAČAR · 1080×1080 ============ */}
-      <Frame id="b1" w={1080} h={1080} label="Meta feed · Pogačar">
-        <Image src="/img/hero-pogacar.jpg" alt="" fill className="object-cover object-[62%_20%] opacity-70" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/25 to-transparent" />
+      {/* ============ E · LACTATE GEL — jediná linka s termínem. Nasadit až po 7. 9. ============ */}
+
+      <Frame id="e1" w={1080} h={1080} label="Meta feed · lactate gel">
+        <Image src="/img/tdf-drink-road.jpg" alt="" fill className="object-cover object-[68%_center] opacity-70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-ink/10" />
         <div className="absolute inset-0 flex flex-col items-start justify-between p-20">
           <Logo className="h-32 w-auto" />
           <div>
-            <p className="font-display text-[135px] font-extrabold uppercase italic leading-[0.92]">
-              Výživa vítězů
+            <p className="font-display text-[118px] font-extrabold uppercase italic leading-[0.92]">
+              Zatím jen
               <br />
-              <span className="hl-bib">Tour.</span>
+              tým UAE.
+              <br />
+              <span className="hl-bib">Od 13. 9. vy.</span>
             </p>
+            <div className="mt-12">
+              <Cta>Chci být na seznamu</Cta>
+            </div>
+          </div>
+        </div>
+      </Frame>
+
+      <Frame id="e2" w={1200} h={628} label="Meta link ad / GDN · lactate gel">
+        <Image src="/img/tdf-drink-road.jpg" alt="" fill className="object-cover object-[72%_center] opacity-70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/65 to-transparent" />
+        <div className="absolute inset-0 flex flex-col justify-between p-16">
+          <Logo className="h-24 w-auto self-start" />
+          <div>
+            <p className="font-display max-w-[760px] text-[76px] font-extrabold uppercase italic leading-[0.9]">
+              Zatím jen tým UAE.
+              <br />
+              <span className="hl-bib">Od 13. září vy.</span>
+            </p>
+            <div className="mt-8">
+              <Cta small>Chci být na seznamu</Cta>
+            </div>
+          </div>
+        </div>
+      </Frame>
+
+      <Frame id="e3" w={1080} h={1920} label="IG/FB story · lactate gel">
+        <Image src="/img/tdf-bus-phone.jpg" alt="" fill className="object-cover object-[50%_35%] opacity-70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/25 to-ink/55" />
+        <div className="absolute inset-0 flex flex-col items-center justify-between p-20 pb-36 text-center">
+          <Logo className="h-40 w-auto" />
+          <div>
+            <p className="font-display text-[140px] font-extrabold uppercase italic leading-[0.9]">
+              C2:1PRO
+              <br />
+              <span className="hl-bib">Lactate</span>
+            </p>
+            <p className="mt-8 text-4xl font-semibold text-white/80">Do prodeje po 13. září</p>
+            <div className="mt-14">
+              <Cta>Chci být na seznamu</Cta>
+            </div>
+            <p className="mt-10 text-3xl font-semibold text-white/70">{URL_LABEL}</p>
+          </div>
+        </div>
+      </Frame>
+
+      {/* ============ F · REGÁL — nejsilnější B2B fotka: police se zbožím v týmovém autobuse ============ */}
+
+      <Frame id="f1" w={1080} h={1080} label="Meta feed · regál">
+        <Image src="/img/tdf-shelf.jpg" alt="" fill className="object-cover object-[center_40%] opacity-80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/35 to-transparent" />
+        <div className="absolute inset-0 flex flex-col items-start justify-between p-20">
+          <Logo className="h-32 w-auto" />
+          <div>
+            <p className="font-display text-[128px] font-extrabold uppercase italic leading-[0.9]">
+              Vyhrálo to Tour.
+              <br />
+              Teď to chce
+              <br />
+              <span className="hl-bib">regál.</span>
+            </p>
+            <div className="mt-12">
+              <Cta>Staňte se partnerem</Cta>
+            </div>
+          </div>
+        </div>
+      </Frame>
+
+      <Frame id="f2" w={1200} h={628} label="Meta link ad / GDN · regál">
+        <Image src="/img/tdf-shelf.jpg" alt="" fill className="object-cover object-[center_38%] opacity-80" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/60 to-transparent" />
+        <div className="absolute inset-0 flex flex-col justify-between p-16">
+          <Logo className="h-24 w-auto self-start" />
+          <div>
+            <p className="font-display max-w-[740px] text-[80px] font-extrabold uppercase italic leading-[0.9]">
+              Vyhrálo to Tour.
+              <br />
+              Teď to chce <span className="hl-bib">regál.</span>
+            </p>
+            <div className="mt-8">
+              <Cta small>Staňte se partnerem</Cta>
+            </div>
+          </div>
+        </div>
+      </Frame>
+
+      {/* ============ B1 · VLNA · 1080×1080 ============ */}
+      <Frame id="b1" w={1080} h={1080} label="Meta feed · vlna vítězství">
+        <Image src="/img/win-pogacar.jpg" alt="" fill className="object-cover object-[45%_18%] opacity-70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent" />
+        <div className="absolute inset-0 flex flex-col items-start justify-between p-20">
+          <Logo className="h-32 w-auto" />
+          <div>
+            <p className="font-display text-[128px] font-extrabold uppercase italic leading-[0.9]">
+              Pátá Tour.
+              <br />
+              Wimbledon.
+              <br />
+              <span className="hl-bib">Zlato z MS.</span>
+            </p>
+            <p className="mt-8 text-4xl font-semibold text-white/80">Patnáct dnů. Jedna výživa.</p>
             <div className="mt-12">
               <Cta>Prodávejte ji i vy</Cta>
             </div>
@@ -149,14 +263,16 @@ export default function Banners() {
       </Frame>
 
       {/* ============ B2 · POGAČAR · 1200×628 link ad ============ */}
-      <Frame id="b2" w={1200} h={628} label="Meta link ad / GDN · Pogačar">
-        <Image src="/img/hero-pogacar.jpg" alt="" fill className="object-cover object-[70%_20%] opacity-70" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/60 to-transparent" />
+      <Frame id="b2" w={1200} h={628} label="Meta link ad / GDN · vlna vítězství">
+        <Image src="/img/tdf-team-bus.jpg" alt="" fill className="object-cover object-[58%_center] opacity-70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/65 to-transparent" />
         <div className="absolute inset-0 flex flex-col justify-between p-16">
           <Logo className="h-24 w-auto self-start" />
           <div>
-            <p className="font-display max-w-[720px] text-8xl font-extrabold uppercase italic leading-[0.92]">
-              Výživa vítězů <span className="hl-bib">Tour.</span>
+            <p className="font-display max-w-[760px] text-[78px] font-extrabold uppercase italic leading-[0.9]">
+              Pátá Tour. Wimbledon.
+              <br />
+              <span className="hl-bib">Zlato z MS.</span>
             </p>
             <div className="mt-8">
               <Cta small>Prodávejte ji i vy</Cta>
@@ -184,7 +300,7 @@ export default function Banners() {
       </Frame>
 
       {/* ============ B3 · POGAČAR · 1080×1920 story ============ */}
-      <Frame id="b3" w={1080} h={1920} label="IG/FB story · Pogačar">
+      <Frame id="b3" w={1080} h={1920} label="IG/FB story · vlna vítězství">
         <Image src="/img/win-pogacar.jpg" alt="" fill className="object-cover object-[45%_top] opacity-65" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-ink/50" />
         <div className="absolute inset-0 flex flex-col items-center justify-between p-20 pb-36 text-center">

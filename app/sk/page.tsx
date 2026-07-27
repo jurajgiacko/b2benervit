@@ -263,9 +263,9 @@ export default function HomeSK() {
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/80 to-ink/20" />
-        <div className="relative mx-auto w-full max-w-6xl px-4 py-24">
+        <div className="relative mx-auto w-full max-w-6xl px-4 pb-32 pt-24 md:pb-24">
           <span className="tag-bib rise">B2B program pre špecializované predajne v SR a ČR</span>
-          <h1 className="font-display rise rise-1 mt-5 max-w-3xl text-5xl font-extrabold uppercase italic leading-[0.98] sm:text-7xl">
+          <h1 className="font-display rise rise-1 mt-5 max-w-3xl text-[clamp(2.15rem,8.5vw,3rem)] font-extrabold uppercase italic leading-[0.98] sm:text-7xl">
             Predávajte výživu, s ktorou sa{" "}
             <span className="hl-bib">v júli vyhralo</span> všetko
           </h1>
