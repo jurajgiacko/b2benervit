@@ -266,13 +266,12 @@ export default function HomeSK() {
         <div className="relative mx-auto w-full max-w-6xl px-4 pb-32 pt-24 md:pb-24">
           <span className="tag-bib rise">B2B program pre špecializované predajne v SR a ČR</span>
           <h1 className="font-display rise rise-1 mt-5 max-w-3xl text-[clamp(2.15rem,8.5vw,3rem)] font-extrabold uppercase italic leading-[0.98] sm:text-7xl">
-            Predávajte výživu, s ktorou sa{" "}
-            <span className="hl-bib">v júli vyhralo</span> všetko
+            Predávajte <span className="hl-bib">výživu víťazov</span>
           </h1>
           <p className="rise rise-2 mt-6 max-w-xl text-lg text-white/80">
             Piata Tour de France pre Pogačara. Obhájený Wimbledon pre Sinnera. Zlato z majstrovstiev
-            sveta pre Terezu Rauturier. Za pätnásť dní, na jednej výžive — a vaši zákazníci ju
-            zatiaľ nemajú u vás kde kúpiť.
+            sveta pre Terezu Rauturier. Všetci jazdia na Enervite — a vaši zákazníci ho u vás zatiaľ
+            nekúpia.
           </p>
           <div className="rise rise-3 mt-10 flex flex-wrap gap-4">
             <a

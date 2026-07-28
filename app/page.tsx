@@ -250,13 +250,12 @@ export default function Home() {
         <div className="relative mx-auto w-full max-w-6xl px-4 pb-32 pt-24 md:pb-24">
           <span className="tag-bib rise">B2B program pro specializované prodejny v ČR a SR</span>
           <h1 className="font-display rise rise-1 mt-5 max-w-3xl text-[clamp(2.15rem,8.5vw,3rem)] font-extrabold uppercase italic leading-[0.98] sm:text-7xl">
-            Prodávejte výživu, se kterou se{" "}
-            <span className="hl-bib">v červenci vyhrálo</span> všechno
+            Prodávejte <span className="hl-bib">výživu vítězů</span>
           </h1>
           <p className="rise rise-2 mt-6 max-w-xl text-lg text-white/80">
             Pátá Tour de France pro Pogačara. Obhájený Wimbledon pro Sinnera. Zlato z mistrovství
-            světa pro Terezu Rauturier. Za patnáct dnů, na jedné výživě — a vaši zákazníci ji zatím
-            nemají u vás kde koupit.
+            světa pro Terezu Rauturier. Všichni jedou na Enervitu — a vaši zákazníci ho u vás zatím
+            nekoupí.
           </p>
           <div className="rise rise-3 mt-10 flex flex-wrap gap-4">
             <a
