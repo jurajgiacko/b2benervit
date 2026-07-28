@@ -113,8 +113,7 @@ export default function Banners() {
       </p>
       <p className="mt-2 max-w-2xl text-sm text-neutral-600">
         Do testu ve Vlně 1 jdou proti sobě <b>F1 · A1 · E1</b> (důkaz vs. ekonomika vs. novinka s termínem).
-        Kill‑kritérium: linka s CPL &gt; 1 000 Kč po 10 000 Kč spendu se vypíná. Linka E má smysl až od
-        7. 9. — do té doby o lactate gelu nemluvíme veřejně.
+        Kill‑kritérium: linka s CPL &gt; 1 000 Kč po 10 000 Kč spendu se vypíná. Linka E neslibuje datum — Enervit S.p.A. termín zatím nepotvrdil.
       </p>
       <nav className="mb-6 mt-4 flex max-w-4xl flex-wrap gap-2">
         {INDEX.map((i) => (
@@ -201,11 +200,11 @@ export default function Banners() {
           <Logo className="h-32 w-auto" />
           <div>
             <p className="font-display text-[118px] font-extrabold uppercase italic leading-[0.92]">
-              Zatím jen
+              Co testuje
               <br />
-              tým UAE.
+              tým UAE,
               <br />
-              <span className="hl-bib">Od 13. 9. vy.</span>
+              <span className="hl-bib">máte první.</span>
             </p>
             <div className="mt-12">
               <Cta>Chci být na seznamu</Cta>
@@ -221,9 +220,9 @@ export default function Banners() {
           <Logo className="h-24 w-auto self-start" />
           <div>
             <p className="font-display max-w-[760px] text-[76px] font-extrabold uppercase italic leading-[0.9]">
-              Zatím jen tým UAE.
+              Co testuje tým UAE,
               <br />
-              <span className="hl-bib">Od 13. září vy.</span>
+              <span className="hl-bib">máte jako první.</span>
             </p>
             <div className="mt-8">
               <Cta small>Chci být na seznamu</Cta>
@@ -243,7 +242,7 @@ export default function Banners() {
               <br />
               <span className="hl-bib">Lactate</span>
             </p>
-            <p className="mt-8 text-4xl font-semibold text-white/80">Do prodeje po 13. září</p>
+            <p className="mt-8 text-4xl font-semibold text-white/80">Novinky u vás jako u prvních</p>
             <div className="mt-14">
               <Cta>Chci být na seznamu</Cta>
             </div>

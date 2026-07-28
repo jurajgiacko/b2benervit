@@ -276,17 +276,22 @@ export default function Home() {
               <p className="font-display text-3xl font-bold text-enervit">1954</p>
               <p className="mt-1 text-white/60">italská značka, 70 let ve výživě</p>
             </div>
-            <div>
+            <a href="#formular" className="group block">
               <p className="font-display text-3xl font-bold text-enervit">262</p>
-              <p className="mt-1 text-white/60">partnerů nakoupilo v 1. pololetí 2026</p>
+              <p className="mt-1 text-white/60">
+                partnerských prodejen —{" "}
+                <span className="font-semibold text-white underline decoration-enervit decoration-2 underline-offset-4 transition group-hover:text-enervit">
+                  Přidejte se →
+                </span>
+              </p>
+            </a>
+            <div>
+              <p className="font-display text-3xl font-bold text-enervit">40+</p>
+              <p className="mt-1 text-white/60">eventů ročně + lokální marketing prodejen</p>
             </div>
             <div>
-              <p className="font-display text-3xl font-bold text-enervit">3</p>
-              <p className="mt-1 text-white/60">největší závody v ČR/SR jako partner</p>
-            </div>
-            <div>
-              <p className="font-display text-3xl font-bold text-enervit">UAE</p>
-              <p className="mt-1 text-white/60">oficiální výživa UAE Team Emirates</p>
+              <p className="font-display text-3xl font-bold text-enervit">Skladem</p>
+              <p className="mt-1 text-white/60">vlastní sklad v ČR, expedice do ČR i SR</p>
             </div>
           </div>
         </div>
@@ -297,7 +302,7 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-4">
           <div className="border-t border-white/15 pt-16">
             <span className="tag-bib">Červenec 2026</span>
-            <h2 className="font-display mt-4 max-w-2xl text-4xl font-bold uppercase italic leading-tight sm:text-5xl">
+            <h2 className="font-display mt-4 max-w-2xl text-balance text-4xl font-bold uppercase italic leading-tight sm:text-5xl">
               Patnáct dnů, tři vítězství, jedna výživa
             </h2>
           </div>
@@ -454,11 +459,11 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/30" />
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 lg:grid-cols-2">
           <div>
-            <span className="tag-bib">Novinka s termínem</span>
-            <h2 className="font-display mt-4 text-4xl font-bold uppercase italic leading-tight sm:text-5xl">
-              Zatím to má jen tým UAE.
+            <span className="tag-bib">Novinky jako první</span>
+            <h2 className="font-display mt-4 text-balance text-4xl font-bold uppercase italic leading-tight sm:text-5xl">
+              Co dnes testuje tým UAE,
               <br />
-              <span className="hl-bib">Po 13. září</span> i vaše prodejna.
+              máte <span className="hl-bib">jako první</span>
             </h2>
             <p className="mt-6 max-w-md text-white/75">
               <strong className="font-semibold text-white">Enervit C2:1PRO Lactate Gel Mix</strong> —
@@ -466,15 +471,16 @@ export default function Home() {
               prof. George A. Brooks a Dr. Iñigo San Millán. Poprvé se objevil na letošní Tour.
             </p>
             <p className="mt-4 max-w-md text-white/75">
-              Zatím ho používá výhradně tým. Do prodeje jde po La Vueltě, která končí 13. září.
+              Zatím ho používá výhradně tým.
               <strong className="font-semibold text-white">
                 {" "}
-                První várka je omezená a rozdělujeme ji přednostně partnerům, kteří jsou nalistovaní.
+                Až půjde do prodeje, první várku rozdělujeme přednostně partnerům, kteří jsou
+                nalistovaní.
               </strong>
             </p>
             <p className="mt-6 text-sm text-white/45">
-              Zápis na seznam vás k ničemu nezavazuje. Až bude zboží připravené, ozveme se vám dřív
-              než ostatním.
+              Novinky od Enervitu prochází testy s profesionály dřív, než se dostanou na pult.
+              Zápis na seznam vás k ničemu nezavazuje — jen budete první, komu se ozveme.
             </p>
           </div>
           <WaitlistForm />
@@ -627,12 +633,12 @@ export default function Home() {
           <div className="text-white">
             <span className="tag-bib">Přidejte se</span>
             <h2 className="font-display mt-4 text-4xl font-bold uppercase italic leading-tight sm:text-5xl">
-              Na jaře 2027 mít Enervit <span className="hl-bib">v regálu</span>
+              Mějte Enervit <span className="hl-bib">v regálu</span>
             </h2>
             <p className="mt-4 max-w-md text-white/75">
-              O tom, co budete mít na pultě v březnu, se rozhoduje teď na podzim. Vyplňte formulář
-              a do 24 hodin se vám ozve obchodní zástupce pro váš region. Bez závazků — jen si
-              spolu projdete, jestli to dává smysl.
+              Vyplňte formulář a do 24 hodin se vám ozve obchodní zástupce pro váš region.
+              Domluvíte si startovací balíček na míru vaší prodejně. Bez závazků — jen si spolu
+              projdete, jestli to dává smysl.
             </p>
           </div>
           <LeadForm />
