@@ -28,6 +28,32 @@ function Cta({ children, dark = false, small = false }: { children: React.ReactN
   );
 }
 
+// Kolečko PŘED / BĚHEM / PO — převzato z formátu bannerů na eshop.enervit.cz,
+// aby nový banner nevypadal jako cizí prvek vedle stávajících.
+function Phase({ label, size = 118 }: { label: string; size?: number }) {
+  return (
+    <span
+      className="absolute right-6 top-6 flex flex-col items-center justify-center rounded-full bg-white shadow-lg"
+      style={{ width: size, height: size }}
+    >
+      <span
+        className="bg-enervit"
+        style={{
+          width: size * 0.52,
+          height: size * 0.26,
+          borderRadius: `${size}px ${size}px 0 0`,
+        }}
+      />
+      <span
+        className="font-display mt-1 font-bold uppercase italic tracking-wide text-enervit"
+        style={{ fontSize: size * 0.17 }}
+      >
+        {label}
+      </span>
+    </span>
+  );
+}
+
 function Frame({
   w,
   h,
@@ -57,6 +83,7 @@ function Frame({
 }
 
 const INDEX = [
+  { id: "g1", label: "G1 e-shop hero · výživa vítězů" },
   { id: "e1", label: "E1 lactate · feed" },
   { id: "e2", label: "E2 lactate · link ad" },
   { id: "e3", label: "E3 lactate · story" },
@@ -101,6 +128,54 @@ export default function Banners() {
         ))}
       </nav>
       <BannerZoom />
+
+      {/* ============ G1 · E-SHOP HERO · 1900×370 ============================
+          Formát převzatý ze stávajícího banneru „Pomáháme sportovat lépe":
+          červený panel se šikmým řezem vlevo, tři fotky vpravo, kolečka fází.
+          Fotky jsou skutečně před / během / po jedné etapy — nic se nepředstírá. */}
+      <Frame id="g1" w={1900} h={370} label="eshop.enervit.cz · hero">
+        <div className="absolute inset-0 flex">
+          {/* levý červený panel */}
+          <div
+            className="relative z-10 flex shrink-0 flex-col justify-center bg-enervit pl-16 pr-24"
+            style={{ width: 780, clipPath: "polygon(0 0, 100% 0, calc(100% - 46px) 100%, 0 100%)" }}
+          >
+            {/* jen šipková značka, ne celý logotyp — stejně jako na stávajícím banneru */}
+            <Image
+              src="/img/enervit-mark.png"
+              alt="Enervit"
+              width={1063}
+              height={734}
+              className="mb-6 self-start"
+              style={{ height: 58, width: "auto" }}
+            />
+            <p className="font-display text-[86px] font-extrabold uppercase italic leading-[0.88] text-white">
+              Výživa
+              <br />
+              <span className="text-[#FFD400]">vítězů</span>
+            </p>
+            <p className="mt-4 max-w-[540px] text-[22px] font-semibold leading-snug text-white/90">
+              Pátá Tour. Obhájený Wimbledon. Zlato z MS.
+            </p>
+          </div>
+
+          {/* tři fotky = tři fáze jedné etapy */}
+          <div className="relative -ml-10 grid flex-1 grid-cols-3 gap-1.5">
+            <div className="relative overflow-hidden">
+              <Image src="/img/tdf-shelf.jpg" alt="" fill className="object-cover object-[42%_38%]" />
+              <Phase label="Před" />
+            </div>
+            <div className="relative overflow-hidden">
+              <Image src="/img/tdf-drink-road.jpg" alt="" fill className="object-cover object-[46%_center]" />
+              <Phase label="Během" />
+            </div>
+            <div className="relative overflow-hidden">
+              <Image src="/img/tdf-yellow-portrait.jpg" alt="" fill className="object-cover object-[52%_30%]" />
+              <Phase label="Po" />
+            </div>
+          </div>
+        </div>
+      </Frame>
 
       {/* ============ A1 · MARŽE · 1080×1080 — čistá typografie ============ */}
       <Frame id="a1" w={1080} h={1080} label="Meta feed · marže">
